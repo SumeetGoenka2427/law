@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interviews — LawBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B3E;--navy-mid:#1A2E5A;
+  --crimson:#9B1B30;--crimson-lt:#C0253F;
+  --gold:#B8860B;--gold-lt:#D4A017;
+  --bg:#F8F6F1;--bg-card:#FFFFFF;--bg-shade:#EEE9E0;
+  --text-pri:#1A1A1A;--text-sec:#444;--text-muted:#777;--text-inv:#F8F6F1;
+  --border:#D8D0C4;
+  --serif:'Playfair Display',Georgia,serif;
+  --body-serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --shadow-sm:0 2px 8px rgba(13,27,62,.08);
+  --shadow-md:0 4px 20px rgba(13,27,62,.12);
+  --shadow-lg:0 8px 40px rgba(13,27,62,.18);
+  --tr:.28s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text-pri);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;object-fit:cover}
+.container{max-width:1260px;margin:0 auto;padding:0 24px}
+.tag{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:var(--crimson);color:#fff}
+.tag.navy{background:var(--navy)}.tag.gold{background:var(--gold)}.tag.green{background:#1B6B3A}
+
+/* Shared header CSS (same as all pages) */
+.breaking-bar{background:var(--crimson);color:#fff;height:36px;display:flex;align-items:center;overflow:hidden}
+.breaking-label{flex-shrink:0;background:#7A0D22;height:100%;display:flex;align-items:center;padding:0 18px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;gap:8px;position:relative}
+.breaking-label::after{content:'';position:absolute;right:-10px;top:0;bottom:0;border-style:solid;border-width:18px 0 18px 10px;border-color:transparent transparent transparent #7A0D22}
+.breaking-dot{width:6px;height:6px;background:#FFD;border-radius:50%;animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.marquee-wrap{flex:1;overflow:hidden;padding-left:20px}
+.marquee-track{display:inline-flex;gap:60px;white-space:nowrap;animation:marqueeScroll 40s linear infinite}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-item{font-size:12.5px;font-weight:500}.marquee-item::before{content:'●';margin-right:12px;font-size:8px;opacity:.7}
+.util-bar{background:var(--navy);color:#9AADCC;font-size:11px;height:32px;display:flex;align-items:center}
+.util-bar .container{display:flex;justify-content:space-between;align-items:center;width:100%}
+.util-left,.util-right{display:flex;align-items:center;gap:20px}
+.util-bar a:hover{color:#fff}.date-tag{color:#C8D5E8;font-weight:500}
+.edition-pill{background:rgba(255,255,255,.1);padding:2px 10px;border-radius:20px;font-size:10px;font-weight:600;color:#C8D5E8}
+.site-header{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;transition:box-shadow .3s}
+.site-header.scrolled{box-shadow:var(--shadow-lg)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo-wrap{display:flex;flex-direction:column}
+.logo-name{font-family:var(--serif);font-size:30px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1}
+.logo-name span{color:var(--crimson)}
+.logo-tagline{font-size:9.5px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-top:2px}
+.logo-rule{display:flex;margin-top:3px}
+.logo-rule span:first-child{width:30px;height:2px;background:var(--crimson)}
+.logo-rule span:last-child{width:12px;height:2px;background:var(--gold);margin-left:3px}
+.main-nav{display:flex;align-items:center}
+.main-nav a{font-size:12.5px;font-weight:600;color:var(--text-sec);padding:8px 14px;transition:var(--tr);position:relative}
+.main-nav a::after{content:'';position:absolute;bottom:2px;left:14px;right:14px;height:2px;background:var(--crimson);transform:scaleX(0);transition:transform .25s}
+.main-nav a:hover{color:var(--navy)}.main-nav a:hover::after,.main-nav a.active::after{transform:scaleX(1)}.main-nav a.active{color:var(--crimson)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--border);cursor:pointer;transition:var(--tr);background:transparent;color:var(--text-sec)}
+.icon-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.subscribe-btn{background:var(--crimson);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:9px 18px;border-radius:3px;transition:var(--tr)}
+.subscribe-btn:hover{background:var(--crimson-lt);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px}
+.mobile-nav{display:none;flex-direction:column;background:var(--bg-card);border-top:2px solid var(--crimson);box-shadow:var(--shadow-lg);position:absolute;left:0;right:0;top:100%;z-index:99}
+.mobile-nav.open{display:flex}
+.mobile-nav a{padding:13px 24px;font-size:14px;border-bottom:1px solid var(--bg-shade)}
+.mobile-nav a:hover{background:var(--bg-shade);color:var(--crimson)}
+.nav-secondary{background:var(--bg-shade);border-bottom:1px solid var(--border);overflow:hidden}
+.nav-secondary .container{display:flex;gap:0;align-items:center;height:38px;overflow-x:auto;scrollbar-width:none}
+.nav-secondary .container::-webkit-scrollbar{display:none}
+.nav-secondary a{flex-shrink:0;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-sec);padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid var(--border);transition:var(--tr)}
+.nav-secondary a:hover,.nav-secondary a.active{background:var(--navy);color:#fff}
+
+/* ─── Interviews Hero ──────────────────────── */
+.interviews-hero{background:var(--navy);padding:0;overflow:hidden;position:relative}
+.ih-featured{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.ih-img{position:relative;overflow:hidden}
+.ih-img img{height:100%;min-height:480px;transition:transform .6s;filter:grayscale(15%)}
+.ih-img:hover img{transform:scale(1.04)}
+.ih-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 30%,var(--navy) 100%)}
+.ih-body{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.ih-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-lt);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.ih-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold-lt)}
+.ih-headline{font-family:var(--serif);font-size:30px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px}
+.ih-quote{font-family:var(--body-serif);font-size:15px;font-style:italic;color:#AAB8CC;line-height:1.7;padding-left:16px;border-left:3px solid var(--crimson);margin-bottom:24px}
+.ih-person{display:flex;align-items:center;gap:14px}
+.ihp-avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.2)}
+.ihp-avatar img{height:100%}
+.ihp-name{font-size:14px;font-weight:700;color:#fff}
+.ihp-role{font-size:11.5px;color:#7A9ABB}
+.ih-read-btn{margin-top:24px;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--gold-lt);transition:gap .2s;width:fit-content}
+.ih-read-btn:hover{gap:12px;color:#fff}
+/* Side featured interviews */
+.ih-right{display:flex;flex-direction:column;background:var(--navy)}
+.ih-side-item{display:grid;grid-template-columns:140px 1fr;flex:1;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;overflow:hidden;transition:var(--tr)}
+.ih-side-item:last-child{border-bottom:none}
+.ih-side-item:hover{background:rgba(255,255,255,.04)}
+.isi-img{overflow:hidden;position:relative}
+.isi-img img{height:100%;min-height:150px;transition:transform .4s;filter:grayscale(20%)}
+.ih-side-item:hover .isi-img img{transform:scale(1.06)}
+.isi-body{padding:20px 24px;display:flex;flex-direction:column;justify-content:center}
+.isi-label{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);margin-bottom:6px}
+.isi-headline{font-family:var(--serif);font-size:14px;font-weight:600;color:#E8EEF6;line-height:1.3;margin-bottom:8px}
+.isi-person{font-size:11px;color:#7A9ABB}
+
+/* ─── Main layout ──────────────────────────── */
+.main-layout{display:grid;grid-template-columns:1fr 290px;gap:36px;padding:36px 0 52px}
+.content-col{min-width:0}
+.sidebar-col{min-width:0}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.section-title{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--navy);padding-bottom:8px;border-bottom:3px solid var(--navy);display:flex;align-items:center;gap:8px}
+.section-title span.accent{color:var(--crimson)}
+.view-all{font-size:11.5px;font-weight:600;color:var(--crimson);display:flex;align-items:center;gap:4px;transition:gap .2s}
+.view-all:hover{gap:8px}
+
+/* Interview cards — full width horizontal */
+.interview-card{display:grid;grid-template-columns:260px 1fr;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:20px;cursor:pointer;transition:var(--tr)}
+.interview-card:hover{box-shadow:var(--shadow-md)}
+.ic-img{position:relative;overflow:hidden}
+.ic-img img{height:100%;min-height:200px;transition:transform .4s;filter:grayscale(10%)}
+.interview-card:hover .ic-img img{transform:scale(1.05)}
+.ic-body{padding:24px;display:flex;flex-direction:column}
+.ic-type{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crimson);display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.ic-type::before{content:'';display:block;width:18px;height:2px;background:var(--crimson)}
+.ic-headline{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.25;color:var(--text-pri);margin-bottom:12px;flex:1}
+.ic-quote{font-family:var(--body-serif);font-size:13.5px;font-style:italic;color:var(--text-sec);line-height:1.65;padding-left:14px;border-left:3px solid var(--border);margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ic-person{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--bg-shade)}
+.ic-avatar{width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--bg-shade)}
+.ic-avatar img{height:100%}
+.ic-name{font-size:12.5px;font-weight:700;color:var(--navy)}
+.ic-role{font-size:11px;color:var(--text-muted)}
+.ic-date{margin-left:auto;font-size:10.5px;color:var(--text-muted);text-align:right}
+
+/* Grid of smaller interviews */
+.interview-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:28px}
+.imc{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:var(--tr)}
+.imc:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.imc-img{height:180px;overflow:hidden;position:relative}
+.imc-img img{height:100%;transition:transform .4s;filter:grayscale(15%)}
+.imc:hover .imc-img img{transform:scale(1.06)}
+.imc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,45,.85) 0%,transparent 50%)}
+.imc-img-bottom{position:absolute;bottom:0;left:0;right:0;padding:12px}
+.imc-name{font-family:var(--serif);font-size:14px;font-weight:700;color:#fff}
+.imc-role{font-size:10.5px;color:#AAB8CC}
+.imc-body{padding:14px}
+.imc-type{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--crimson);margin-bottom:6px}
+.imc-headline{font-family:var(--serif);font-size:14.5px;font-weight:600;line-height:1.3;color:var(--text-pri);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Pagination */
+.pagination{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.page-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--border);border-radius:3px;font-size:13px;font-weight:600;cursor:pointer;transition:var(--tr);color:var(--text-sec);background:transparent}
+.page-btn:hover{border-color:var(--navy);color:var(--navy)}
+.page-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.page-btn.prev,.page-btn.next{width:auto;padding:0 14px;font-size:12px}
+
+/* Sidebar */
+.sidebar-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;margin-bottom:22px;overflow:hidden}
+.widget-title{font-family:var(--serif);font-size:13.5px;font-weight:700;color:#fff;background:var(--navy);padding:11px 16px;display:flex;align-items:center;gap:7px}
+.widget-body{padding:14px}
+.trending-item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--bg-shade);cursor:pointer}
+.trending-item:last-child{border-bottom:none;padding-bottom:0}
+.trending-item:hover .trending-headline{color:var(--crimson)}
+.trending-num{font-size:20px;font-weight:800;color:var(--bg-shade);font-family:var(--serif);line-height:1;min-width:26px}
+.trending-headline{font-size:12.5px;font-weight:500;line-height:1.35;color:var(--text-pri);transition:color .2s}
+.trending-time{font-size:10px;color:var(--text-muted);margin-top:3px}
+.suggest-form{padding:0}
+.sf-text{font-size:12.5px;color:var(--text-sec);line-height:1.5;margin-bottom:12px}
+.sf-input{width:100%;padding:8px 12px;border:1.5px solid var(--border);border-radius:3px;font-size:12.5px;font-family:var(--sans);outline:none;transition:border-color .2s;background:var(--bg);color:var(--text-pri);margin-bottom:7px}
+.sf-input:focus{border-color:var(--navy);background:#fff}
+.sf-btn{width:100%;background:var(--navy);color:#fff;border:none;padding:9px;border-radius:3px;font-size:11.5px;font-weight:600;cursor:pointer;transition:var(--tr);font-family:var(--sans)}
+.sf-btn:hover{background:var(--crimson)}
+.ad-box{background:repeating-linear-gradient(45deg,#F0EBE0,#F0EBE0 10px,#E8E2D6 10px,#E8E2D6 20px);border:2px dashed var(--border);border-radius:4px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;margin-bottom:22px}
+.ad-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted)}
+.newsletter-outer{background:linear-gradient(135deg,var(--navy) 0%,#1A2E5A 100%)}
+.newsletter-body{padding:16px}
+.newsletter-text{font-size:12.5px;color:#AAB8CC;line-height:1.5;margin-bottom:12px}
+.newsletter-input{width:100%;padding:9px 12px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:12.5px;border-radius:3px;margin-bottom:7px;outline:none;font-family:var(--sans)}
+.newsletter-input::placeholder{color:#5A7A9C}
+.newsletter-input:focus{border-color:var(--gold)}
+.newsletter-btn{width:100%;background:var(--crimson);color:#fff;border:none;padding:9px;border-radius:3px;font-size:11.5px;font-weight:700;letter-spacing:.5px;cursor:pointer;font-family:var(--sans)}
+.newsletter-btn:hover{background:var(--crimson-lt)}
+
+/* Footer (shared) */
+.pre-footer{background:var(--navy-mid);padding:20px 0;border-top:3px solid var(--crimson)}
+.pre-footer .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.pf-text{font-size:13px;color:#AAB8CC}.pf-text strong{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.5px;padding:9px 20px;border-radius:3px;cursor:pointer;transition:var(--tr);border:none}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy-mid)}
+.site-footer{background:#050D1F;color:#8899AA;padding:48px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:40px;border-bottom:1px solid #1A2E4A}
+.footer-about .logo-name{color:#E8EEF6;font-size:26px}.footer-about .logo-name span{color:var(--crimson)}
+.footer-about p{font-size:12.5px;line-height:1.6;color:#667788;margin-top:12px}
+.footer-social{display:flex;gap:8px;margin-top:16px}
+.social-icon{width:32px;height:32px;border-radius:50%;border:1px solid #1A2E4A;display:flex;align-items:center;justify-content:center;color:#667788;font-size:12px;cursor:pointer;transition:var(--tr)}
+.social-icon:hover{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.footer-col h4{font-family:var(--serif);font-size:13.5px;font-weight:700;color:#C8D5E8;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #1A2E4A}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:12px;color:#667788;transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-links a::before{content:'›';color:var(--crimson);font-size:14px}
+.footer-links a:hover{color:#C8D5E8}
+.footer-contact p{font-size:12px;color:#667788;margin-bottom:6px;display:flex;align-items:flex-start;gap:8px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 0;font-size:11.5px;color:#445566}
+.footer-bottom a{color:#556677}.footer-bottom a:hover{color:#AAB8CC}
+.footer-bottom-links{display:flex;gap:20px}
+.scroll-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;background:var(--navy);color:#fff;border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-md);transition:var(--tr);z-index:99;border:none}
+.scroll-top.visible{display:flex}.scroll-top:hover{background:var(--crimson);transform:translateY(-2px)}
+.search-modal{position:fixed;inset:0;background:rgba(5,13,31,.92);z-index:999;display:none;align-items:flex-start;justify-content:center;padding-top:100px;backdrop-filter:blur(4px)}
+.search-modal.open{display:flex}
+.search-modal-inner{width:100%;max-width:640px;padding:0 24px}
+.search-input-wrap{position:relative;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.search-input-wrap input{width:100%;padding:18px 60px 18px 20px;font-size:18px;border:none;outline:none;font-family:var(--body-serif)}
+.search-submit{position:absolute;right:0;top:0;bottom:0;width:60px;background:var(--crimson);border:none;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center}
+.search-hint{font-size:12px;color:#667788;text-align:center;margin-top:12px}
+.search-close{position:absolute;top:60px;right:40px;color:#aaa;font-size:28px;cursor:pointer}
+.search-close:hover{color:#fff}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.interviews-hero{animation:fadeUp .4s ease both}
+.main-layout{animation:fadeUp .5s .1s ease both}
+
+@media(max-width:1024px){.main-layout{grid-template-columns:1fr}.sidebar-col{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}}
+@media(max-width:840px){.main-nav{display:none}.hamburger{display:flex}.util-bar{display:none}.subscribe-btn{display:none}.ih-featured{grid-template-columns:1fr}.ih-img{min-height:260px}.ih-img::after{background:linear-gradient(to top,var(--navy) 0%,transparent 60%)}.ih-body{padding:28px 24px}.interview-card{grid-template-columns:1fr}.ic-img{min-height:200px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:560px){.interview-mini-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.sidebar-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="breaking-bar">
+  <div class="breaking-label"><div class="breaking-dot"></div>Breaking News</div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">SC Constitution Bench reserves order on Centre's power to alter state boundaries</span>
+      <span class="marquee-item">Bar Council approves CLE framework; 15 hours annually mandatory for all advocates</span>
+      <span class="marquee-item">Lok Sabha passes Digital Personal Data Protection Amendment Bill</span>
+      <span class="marquee-item">SC Constitution Bench reserves order on Centre's power to alter state boundaries</span>
+      <span class="marquee-item">Bar Council approves CLE framework; 15 hours annually mandatory for all advocates</span>
+      <span class="marquee-item">Lok Sabha passes Digital Personal Data Protection Amendment Bill</span>
+    </div>
+  </div>
+</div>
+
+<div class="util-bar">
+  <div class="container">
+    <div class="util-left"><span class="date-tag">Sunday, April 19, 2026</span><span class="edition-pill">New Delhi Edition</span><a href="#">ePaper</a></div>
+    <div class="util-right"><a href="#">Sign In</a><a href="#">Register</a></div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="lawbrief.html" class="logo-wrap">
+        <div class="logo-name">Law<span>Brief</span></div>
+        <div class="logo-tagline">India's Authoritative Legal News Source</div>
+        <div class="logo-rule"><span></span><span></span></div>
+      </a>
+      <nav class="main-nav">
+        <a href="lawbrief.html">Home</a><a href="latest-news.html">Latest News</a>
+        <a href="judgments.html">Judgments</a><a href="articles.html">Articles</a>
+        <a href="interviews.html" class="active">Interviews</a>
+        <a href="#">Columns</a><a href="#">Legislation</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></button>
+        <button class="icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a href="#" class="subscribe-btn">Subscribe</a>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="lawbrief.html">Home</a><a href="latest-news.html">Latest News</a>
+    <a href="judgments.html">Judgments</a><a href="articles.html">Articles</a>
+    <a href="interviews.html">Interviews</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="nav-secondary">
+  <div class="container">
+    <a href="#" class="active">All Interviews</a><a href="#">Retired Judges</a><a href="#">Senior Advocates</a>
+    <a href="#">Law Professors</a><a href="#">Policy Makers</a><a href="#">Young Lawyers</a>
+    <a href="#">Bar Associations</a><a href="#">International</a>
+  </div>
+</div>
+
+<!-- Hero: Magazine-style featured interviews -->
+<div class="interviews-hero">
+  <div class="ih-featured">
+    <!-- Main Feature -->
+    <div class="ih-img">
+      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=85" alt="Justice Interview">
+    </div>
+    <div class="ih-body">
+      <div class="ih-label">Cover Interview · April 2026</div>
+      <h1 class="ih-headline">"The Bar Must Lead on AI Ethics Before the Bench Is Forced to Rule Against Its Own Profession"</h1>
+      <p class="ih-quote">If the legal profession waits for courts to define what constitutes professional misconduct in AI-assisted legal research, we will have ceded control of the narrative entirely. The Bar Council, the law schools, and the senior bar must act now.</p>
+      <div class="ih-person">
+        <div class="ihp-avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&q=75" alt="Justice"></div>
+        <div>
+          <div class="ihp-name">Justice (Retd.) P.K. Vishwanathan</div>
+          <div class="ihp-role">Former Judge, Supreme Court of India</div>
+        </div>
+      </div>
+      <a href="#" class="ih-read-btn">Read Full Interview →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Side interviews -->
+<div style="background:var(--navy);border-top:1px solid rgba(255,255,255,.08)">
+  <div class="container" style="padding:0 24px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
+      <div class="ih-side-item">
+        <div class="isi-img"><img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=300&q=75" alt="Interview"></div>
+        <div class="isi-body">
+          <div class="isi-label">Interview</div>
+          <div class="isi-headline">"India's Competition Law Is Ready for Digital Markets — If Courts Let It Breathe"</div>
+          <div class="isi-person">Justice (Retd.) Indu Malhotra · Former SC Judge</div>
+        </div>
+      </div>
+      <div class="ih-side-item">
+        <div class="isi-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=75" alt="Interview"></div>
+        <div class="isi-body">
+          <div class="isi-label">In Conversation</div>
+          <div class="isi-headline">"Legal Aid Is Not Charity — It Is a Constitutional Obligation the Bar Has Outsourced"</div>
+          <div class="isi-person">Sr. Adv. Kapil Sibal · Supreme Court of India</div>
+        </div>
+      </div>
+      <div class="ih-side-item">
+        <div class="isi-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=75" alt="Interview"></div>
+        <div class="isi-body">
+          <div class="isi-label">Young Voices</div>
+          <div class="isi-headline">"Law Students Deserve to Know What the Profession Actually Looks Like From Day One"</div>
+          <div class="isi-person">Adv. Priya Rajan · Delhi HC, Age 28</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<main>
+  <div class="container">
+    <div class="main-layout">
+      <div class="content-col">
+
+        <div class="sec-head" style="margin-top:4px">
+          <h2 class="section-title"><span class="accent">Recent</span> Interviews</h2>
+          <span style="font-size:11px;color:var(--text-muted)">42 interviews published this year</span>
+        </div>
+
+        <!-- Interview 1 -->
+        <div class="interview-card">
+          <div class="ic-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Interview"></div>
+          <div class="ic-body">
+            <div class="ic-type">Exclusive Interview</div>
+            <h2 class="ic-headline">Sr. Adv. Ramesh Krishnamurthy: "India's Arbitration Story Is One of Missed Opportunities — But the Next Chapter Is Ours to Write"</h2>
+            <p class="ic-quote">"We have spent 25 years amending the Arbitration Act without asking ourselves whether we have the institutional infrastructure to make those amendments meaningful. Legislative reform without institutional readiness is just performance."</p>
+            <div class="ic-person">
+              <div class="ic-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=75" alt="SA"></div>
+              <div>
+                <div class="ic-name">Sr. Adv. Ramesh Krishnamurthy</div>
+                <div class="ic-role">Designated Senior Advocate, Supreme Court of India</div>
+              </div>
+              <div class="ic-date"><div>April 14, 2026</div><div style="font-size:10.5px;margin-top:2px">22 min read</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interview 2 -->
+        <div class="interview-card">
+          <div class="ic-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Interview"></div>
+          <div class="ic-body">
+            <div class="ic-type">In Conversation</div>
+            <h2 class="ic-headline">Former CJI D.Y. Chandrachud on the Collegium, Constitutional Interpretation, and What He Wishes He Could Have Done Differently</h2>
+            <p class="ic-quote">"The hardest decisions are not the ones where the legal answer is unclear. The hardest decisions are the ones where you can see exactly what justice requires, but the institutional constraints of the judiciary mean you cannot deliver it unilaterally."</p>
+            <div class="ic-person">
+              <div class="ic-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=75" alt="CJI"></div>
+              <div>
+                <div class="ic-name">Former Chief Justice D.Y. Chandrachud</div>
+                <div class="ic-role">50th Chief Justice of India (2022–2024)</div>
+              </div>
+              <div class="ic-date"><div>April 10, 2026</div><div style="font-size:10.5px;margin-top:2px">30 min read</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interview 3 -->
+        <div class="interview-card">
+          <div class="ic-img"><img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=400&q=80" alt="Interview"></div>
+          <div class="ic-body">
+            <div class="ic-type">Law School Leaders</div>
+            <h2 class="ic-headline">Prof. Mrinal Satish (NLU Delhi): "Clinical Legal Education Is Not an Add-On — It Should Be the Core of Legal Training"</h2>
+            <p class="ic-quote">"We are graduating students who can cite cases brilliantly and draft pleadings passably, but cannot sit across from a client who has just been evicted and help them understand what their options actually are. That is a fundamental pedagogical failure."</p>
+            <div class="ic-person">
+              <div class="ic-avatar"><img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=80&q=75" alt="Prof"></div>
+              <div>
+                <div class="ic-name">Prof. Mrinal Satish</div>
+                <div class="ic-role">Vice Chancellor, NLU Delhi</div>
+              </div>
+              <div class="ic-date"><div>April 5, 2026</div><div style="font-size:10.5px;margin-top:2px">18 min read</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini interview grid -->
+        <div class="sec-head" style="margin-top:10px">
+          <h2 class="section-title">Young <span class="accent">Voices</span></h2>
+          <a href="#" class="view-all">More →</a>
+        </div>
+
+        <div class="interview-mini-grid">
+          <div class="imc">
+            <div class="imc-img">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=75" alt="Interview">
+              <div class="imc-overlay"></div>
+              <div class="imc-img-bottom">
+                <div class="imc-name">Adv. Priya Rajan</div>
+                <div class="imc-role">Delhi High Court · Age 28</div>
+              </div>
+            </div>
+            <div class="imc-body">
+              <div class="imc-type">Young Voices</div>
+              <h3 class="imc-headline">"I Chose Criminal Defence Because Someone Has to Stand Between the State and the Accused — Even When It's Uncomfortable"</h3>
+            </div>
+          </div>
+          <div class="imc">
+            <div class="imc-img">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75" alt="Interview">
+              <div class="imc-overlay"></div>
+              <div class="imc-img-bottom">
+                <div class="imc-name">Adv. Arjun Krishnan</div>
+                <div class="imc-role">Madras High Court · Age 31</div>
+              </div>
+            </div>
+            <div class="imc-body">
+              <div class="imc-type">Young Voices</div>
+              <h3 class="imc-headline">"Three Years at NALSA Changed How I Think About What Law Is Actually For"</h3>
+            </div>
+          </div>
+          <div class="imc">
+            <div class="imc-img">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=75" alt="Interview">
+              <div class="imc-overlay"></div>
+              <div class="imc-img-bottom">
+                <div class="imc-name">Adv. Suhas Prabhu</div>
+                <div class="imc-role">Bombay HC · Age 26</div>
+              </div>
+            </div>
+            <div class="imc-body">
+              <div class="imc-type">Young Voices</div>
+              <h3 class="imc-headline">"AI Will Not Replace Lawyers — It Will Replace Lawyers Who Refuse to Think Critically"</h3>
+            </div>
+          </div>
+          <div class="imc">
+            <div class="imc-img">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=75" alt="Interview">
+              <div class="imc-overlay"></div>
+              <div class="imc-img-bottom">
+                <div class="imc-name">Adv. Tanvir Ahmed</div>
+                <div class="imc-role">Supreme Court · Age 33</div>
+              </div>
+            </div>
+            <div class="imc-body">
+              <div class="imc-type">Young Voices</div>
+              <h3 class="imc-headline">"The Juniors Who Succeed Are the Ones Who Read Cases — Not Just Their Seniors' Arguments"</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button class="page-btn prev">← Prev</button>
+          <button class="page-btn active">1</button><button class="page-btn">2</button>
+          <button class="page-btn">3</button><button class="page-btn">4</button>
+          <button class="page-btn next">Next →</button>
+        </div>
+
+      </div><!-- /content-col -->
+
+      <!-- Sidebar -->
+      <aside class="sidebar-col">
+
+        <div class="sidebar-widget">
+          <div class="widget-title">📈 Most Read Interviews</div>
+          <div class="widget-body">
+            <div class="trending-item"><div class="trending-num">1</div><div><div class="trending-headline">CJI Chandrachud on Collegium and Constitutional Interpretation</div><div class="trending-time">89k reads</div></div></div>
+            <div class="trending-item"><div class="trending-num">2</div><div><div class="trending-headline">Justice P.K. Vishwanathan on AI Ethics in Legal Practice</div><div class="trending-time">54k reads</div></div></div>
+            <div class="trending-item"><div class="trending-num">3</div><div><div class="trending-headline">Sr. Adv. Krishnamurthy on India's Arbitration Regime</div><div class="trending-time">34k reads</div></div></div>
+            <div class="trending-item"><div class="trending-num">4</div><div><div class="trending-headline">Prof. Satish on Clinical Legal Education</div><div class="trending-time">22k reads</div></div></div>
+          </div>
+        </div>
+
+        <div class="ad-box"><div style="font-size:26px;opacity:.3">📢</div><div class="ad-label">Advertisement · 300×200</div></div>
+
+        <!-- Suggest an Interview -->
+        <div class="sidebar-widget">
+          <div class="widget-title">💡 Suggest an Interview</div>
+          <div class="widget-body">
+            <div class="suggest-form">
+              <p class="sf-text">Know a legal luminary we should interview? Share their name and why their perspective would matter to our readers.</p>
+              <input type="text" class="sf-input" placeholder="Name of the person">
+              <input type="text" class="sf-input" placeholder="Their designation / role">
+              <textarea class="sf-input" placeholder="Why should we interview them? (100 words)" style="resize:vertical;min-height:80px;line-height:1.5"></textarea>
+              <button class="sf-btn" onclick="this.textContent='✓ Suggestion Sent!'">Submit Suggestion</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget newsletter-outer">
+          <div class="widget-title" style="background:rgba(0,0,0,.2)">📧 Weekly Digest</div>
+          <div class="newsletter-body">
+            <p class="newsletter-text">New interviews and in-depth conversations — straight to your inbox every weekend.</p>
+            <input type="email" class="newsletter-input" placeholder="Your email address">
+            <button class="newsletter-btn" onclick="this.textContent='✓ Subscribed!'">Subscribe Free</button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div class="pre-footer">
+  <div class="container">
+    <div class="pf-text"><strong>LawBrief Premium</strong> — Full access to all interviews, judgment database &amp; expert webinars.</div>
+    <div style="display:flex;gap:12px;flex-shrink:0"><a href="#" class="btn btn-primary">Start Free Trial</a></div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo-name">Law<span>Brief</span></div>
+        <p>India's most trusted source for legal news, court judgments and expert opinions. Serving the legal community since 2012.</p>
+        <div class="footer-social"><div class="social-icon">𝕏</div><div class="social-icon">in</div><div class="social-icon">f</div><div class="social-icon">▶</div><div class="social-icon">✈</div></div>
+      </div>
+      <div class="footer-col"><h4>Coverage Areas</h4><div class="footer-links"><a href="#">Supreme Court</a><a href="#">High Courts</a><a href="#">Criminal Law</a><a href="#">Constitutional Law</a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="#">About LawBrief</a><a href="#">Write for Us</a><a href="#">Advertise</a><a href="#">Privacy Policy</a></div></div>
+      <div class="footer-col footer-contact"><h4>Contact Us</h4><p>newsdesk@lawbrief.in</p><div style="margin-top:12px"><a href="#" class="btn btn-primary" style="font-size:11px">Subscribe</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 LawBrief Media Pvt. Ltd. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+
+<div class="search-modal" id="searchModal">
+  <span class="search-close" id="searchClose">✕</span>
+  <div class="search-modal-inner">
+    <div class="search-input-wrap">
+      <input type="text" placeholder="Search interviews, speakers, topics…" id="searchInput" autocomplete="off">
+      <button class="search-submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></button>
+    </div>
+    <p class="search-hint">Popular: Chandrachud, AI in Law, Arbitration, Legal Aid, Law Schools</p>
+  </div>
+</div>
+<button class="scroll-top" id="scrollTop"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+const header=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>60);document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);},{passive:true});
+document.getElementById('scrollTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const modal=document.getElementById('searchModal');
+document.getElementById('searchToggle').addEventListener('click',()=>{modal.classList.add('open');setTimeout(()=>document.getElementById('searchInput').focus(),100)});
+document.getElementById('searchClose').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileNav').classList.toggle('open'));
+</script>
+</body>
+</html>

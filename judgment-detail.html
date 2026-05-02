@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikram Enterprises v. Union of India — Judgment — LawBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B3E;--navy-mid:#1A2E5A;--navy-lt:#2A3F6B;
+  --crimson:#9B1B30;--crimson-lt:#C0253F;
+  --gold:#B8860B;--gold-lt:#D4A017;
+  --bg:#F8F6F1;--bg-card:#FFFFFF;--bg-shade:#EEE9E0;
+  --text-pri:#1A1A1A;--text-sec:#3A3A3A;--text-muted:#777;--text-inv:#F8F6F1;
+  --border:#D8D0C4;
+  --serif:'Playfair Display',Georgia,serif;
+  --body-serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --shadow-sm:0 2px 8px rgba(13,27,62,.08);
+  --shadow-md:0 4px 20px rgba(13,27,62,.12);
+  --shadow-lg:0 8px 40px rgba(13,27,62,.18);
+  --tr:.28s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text-pri);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;object-fit:cover}
+.container{max-width:1260px;margin:0 auto;padding:0 24px}
+.tag{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:var(--crimson);color:#fff}
+.tag.navy{background:var(--navy)}.tag.gold{background:var(--gold)}.tag.green{background:#1B6B3A}
+
+/* shared header/footer */
+.breaking-bar{background:var(--crimson);color:#fff;height:36px;display:flex;align-items:center;overflow:hidden;z-index:200}
+.breaking-label{flex-shrink:0;background:#7A0D22;height:100%;display:flex;align-items:center;padding:0 18px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;gap:8px;position:relative}
+.breaking-label::after{content:'';position:absolute;right:-10px;top:0;bottom:0;border-style:solid;border-width:18px 0 18px 10px;border-color:transparent transparent transparent #7A0D22}
+.breaking-dot{width:6px;height:6px;background:#FFD;border-radius:50%;animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.marquee-wrap{flex:1;overflow:hidden;padding-left:20px}
+.marquee-track{display:inline-flex;gap:60px;white-space:nowrap;animation:marqueeScroll 40s linear infinite}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-item{font-size:12.5px;font-weight:500}.marquee-item::before{content:'●';margin-right:12px;font-size:8px;opacity:.7}
+.util-bar{background:var(--navy);color:#9AADCC;font-size:11px;height:32px;display:flex;align-items:center}
+.util-bar .container{display:flex;justify-content:space-between;align-items:center;width:100%}
+.util-left,.util-right{display:flex;align-items:center;gap:20px}
+.util-bar a:hover{color:#fff}.date-tag{color:#C8D5E8;font-weight:500}
+.edition-pill{background:rgba(255,255,255,.1);padding:2px 10px;border-radius:20px;font-size:10px;font-weight:600;color:#C8D5E8}
+.site-header{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;transition:box-shadow .3s}
+.site-header.scrolled{box-shadow:var(--shadow-lg)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo-wrap{display:flex;flex-direction:column}
+.logo-name{font-family:var(--serif);font-size:30px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1}
+.logo-name span{color:var(--crimson)}
+.logo-tagline{font-size:9.5px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-top:2px}
+.logo-rule{display:flex;margin-top:3px}
+.logo-rule span:first-child{width:30px;height:2px;background:var(--crimson)}
+.logo-rule span:last-child{width:12px;height:2px;background:var(--gold);margin-left:3px}
+.main-nav{display:flex;align-items:center}
+.main-nav a{font-size:12.5px;font-weight:600;color:var(--text-sec);padding:8px 14px;transition:var(--tr);position:relative}
+.main-nav a::after{content:'';position:absolute;bottom:2px;left:14px;right:14px;height:2px;background:var(--crimson);transform:scaleX(0);transition:transform .25s}
+.main-nav a:hover{color:var(--navy)}.main-nav a:hover::after,.main-nav a.active::after{transform:scaleX(1)}.main-nav a.active{color:var(--crimson)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--border);cursor:pointer;transition:var(--tr);background:transparent;color:var(--text-sec)}
+.icon-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.subscribe-btn{background:var(--crimson);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:9px 18px;border-radius:3px;transition:var(--tr)}
+.subscribe-btn:hover{background:var(--crimson-lt);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px}
+.mobile-nav{display:none;flex-direction:column;background:var(--bg-card);border-top:2px solid var(--crimson);box-shadow:var(--shadow-lg);position:absolute;left:0;right:0;top:100%;z-index:99}
+.mobile-nav.open{display:flex}
+.mobile-nav a{padding:13px 24px;font-size:14px;border-bottom:1px solid var(--bg-shade)}
+.mobile-nav a:hover{background:var(--bg-shade);color:var(--crimson)}
+.nav-secondary{background:var(--bg-shade);border-bottom:1px solid var(--border);overflow:hidden}
+.nav-secondary .container{display:flex;gap:0;align-items:center;height:38px;overflow-x:auto;scrollbar-width:none}
+.nav-secondary .container::-webkit-scrollbar{display:none}
+.nav-secondary a{flex-shrink:0;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-sec);padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid var(--border);transition:var(--tr)}
+.nav-secondary a:hover,.nav-secondary a.active{background:var(--navy);color:#fff}
+
+/* ─── Judgment Hero ────────────────────────── */
+.judgment-hero{background:linear-gradient(135deg,var(--navy) 0%,#0A1428 100%);padding:36px 0 32px;position:relative;overflow:hidden}
+.judgment-hero::before{content:'⚖';position:absolute;right:5%;top:50%;transform:translateY(-50%);font-size:200px;opacity:.04;pointer-events:none}
+.jh-inner{max-width:860px}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#5A7A9C;margin-bottom:16px}
+.breadcrumb a{color:#5A7A9C;transition:color .2s}.breadcrumb a:hover{color:#AAB8CC}
+.breadcrumb span{color:#3A5A7A}
+.jh-court-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(184,134,11,.15);border:1px solid rgba(184,134,11,.3);color:var(--gold-lt);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.jh-title{font-family:var(--serif);font-size:34px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:6px}
+.jh-vs{color:var(--crimson-lt);font-style:italic;font-size:26px;font-weight:400;margin:0 8px}
+.jh-case-num{font-size:13px;color:#7A9ABB;font-family:var(--body-serif);font-style:italic;margin-bottom:18px}
+.jh-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.jh-chip{display:flex;align-items:center;gap:5px;font-size:11px;background:rgba(255,255,255,.08);color:#C8D5E8;padding:5px 12px;border-radius:3px;font-weight:500;border:1px solid rgba(255,255,255,.1)}
+.jh-chip strong{font-weight:700;color:#fff}
+.jh-actions{display:flex;gap:8px;flex-wrap:wrap}
+.jh-btn{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:9px 18px;border-radius:3px;cursor:pointer;transition:var(--tr);border:none;font-family:var(--sans)}
+.jh-btn.primary{background:var(--crimson);color:#fff}.jh-btn.primary:hover{background:var(--crimson-lt)}
+.jh-btn.secondary{background:rgba(255,255,255,.1);color:#C8D5E8;border:1px solid rgba(255,255,255,.15)}.jh-btn.secondary:hover{background:rgba(255,255,255,.2);color:#fff}
+
+/* ─── Main layout ──────────────────────────── */
+.judgment-layout{display:grid;grid-template-columns:1fr 280px;gap:40px;max-width:1100px;margin:0 auto;padding:36px 24px 60px}
+
+/* ─── Judgment Body ─────────────────────────── */
+.judgment-body{min-width:0}
+.section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;margin-bottom:20px;overflow:hidden}
+.sc-header{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.sc-title{font-family:var(--serif);font-size:15px;font-weight:700;color:#E8EEF6;display:flex;align-items:center;gap:8px}
+.sc-body{padding:20px}
+.sc-body p{font-family:var(--body-serif);font-size:15px;color:var(--text-sec);line-height:1.72;margin-bottom:14px}
+.sc-body p:last-child{margin-bottom:0}
+
+/* Case Facts */
+.case-parties-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;background:var(--bg-shade);border-radius:4px;overflow:hidden;margin-bottom:18px}
+.party-block{padding:16px 18px}
+.party-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.party-label.appellant{color:var(--crimson)}
+.party-label.respondent{color:var(--navy)}
+.party-name{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--text-pri)}
+.party-sub{font-size:11.5px;color:var(--text-muted);margin-top:2px}
+.versus-block{display:flex;align-items:center;justify-content:center;padding:0 16px;background:var(--bg-shade)}
+.versus{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--crimson);font-weight:600}
+
+/* Holdings */
+.holdings-list{display:flex;flex-direction:column;gap:0}
+.holding-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--bg-shade)}
+.holding-item:last-child{border-bottom:none;padding-bottom:0}
+.holding-num{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.holding-text{font-family:var(--body-serif);font-size:15px;color:var(--text-sec);line-height:1.65}
+.holding-text strong{color:var(--text-pri);font-weight:600}
+
+/* Case details table */
+.detail-table{width:100%;border-collapse:collapse}
+.detail-table tr{border-bottom:1px solid var(--bg-shade)}
+.detail-table tr:last-child{border-bottom:none}
+.detail-table td{padding:10px 0;vertical-align:top}
+.detail-table td:first-child{width:42%;font-size:12px;font-weight:700;letter-spacing:.3px;color:var(--text-muted);text-transform:uppercase;padding-right:16px}
+.detail-table td:last-child{font-size:13.5px;color:var(--text-pri);font-family:var(--body-serif)}
+
+/* Bench */
+.bench-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.bench-card{background:var(--bg-shade);border-radius:4px;padding:14px;display:flex;align-items:center;gap:12px}
+.bc-avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--border)}
+.bc-avatar img{height:100%}
+.bc-name{font-size:13px;font-weight:600;color:var(--navy)}
+.bc-role{font-size:11px;color:var(--text-muted)}
+.bc-opinion{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:2px;margin-top:4px}
+.majority{background:rgba(13,27,62,.1);color:var(--navy)}
+.lead-judgment{background:var(--navy);color:#fff}
+.concurring{background:rgba(27,107,58,.15);color:#1B6B3A}
+.dissenting{background:rgba(155,27,48,.1);color:var(--crimson)}
+
+/* Cited Cases */
+.cited-case{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--bg-shade);cursor:pointer;transition:var(--tr)}
+.cited-case:last-child{border-bottom:none;padding-bottom:0}
+.cited-case:hover .cc-name{color:var(--crimson)}
+.cc-dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:6px}
+.cc-body{flex:1}
+.cc-name{font-size:13.5px;font-weight:600;color:var(--text-pri);font-family:var(--body-serif);transition:color .2s}
+.cc-meta{font-size:11px;color:var(--text-muted);margin-top:3px}
+
+/* Commentary */
+.commentary-box{background:linear-gradient(135deg,rgba(13,27,62,.04),rgba(13,27,62,.01));border:1px solid #C8D0DA;border-left:4px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 20px}
+.cb-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.cb-text{font-family:var(--body-serif);font-size:14px;color:var(--text-sec);line-height:1.65}
+
+/* Tags + Share */
+.judgment-tags{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:24px 0;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.jt-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted)}
+.j-tag{font-size:11.5px;padding:5px 12px;border:1.5px solid var(--border);border-radius:20px;cursor:pointer;transition:var(--tr);color:var(--text-sec)}
+.j-tag:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.share-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sr-label{font-size:13px;font-weight:600;color:var(--navy);font-family:var(--serif)}
+.sr-btns{display:flex;gap:8px;flex-wrap:wrap}
+.sr-btn{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:7px 14px;border-radius:3px;cursor:pointer;border:none;transition:var(--tr)}
+.sr-btn.x{background:#000;color:#fff}
+.sr-btn.wa{background:#25D366;color:#fff}
+.sr-btn.copy{background:var(--bg-shade);color:var(--text-sec);border:1.5px solid var(--border)}
+.sr-btn.copy:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ─── Sidebar ──────────────────────────────── */
+.judgment-sidebar{position:sticky;top:110px;height:fit-content}
+.sidebar-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;margin-bottom:20px;overflow:hidden}
+.widget-title{font-family:var(--serif);font-size:13.5px;font-weight:700;color:#fff;background:var(--navy);padding:11px 16px;display:flex;align-items:center;gap:7px}
+.widget-body{padding:14px}
+.case-stat{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--bg-shade)}
+.case-stat:last-child{border-bottom:none;padding-bottom:0}
+.cs-label{font-size:11.5px;color:var(--text-muted)}
+.cs-val{font-size:13px;font-weight:700;color:var(--text-pri)}
+.related-j{display:flex;flex-direction:column;gap:3px;padding:9px 0;border-bottom:1px solid var(--bg-shade);cursor:pointer}
+.related-j:last-child{border-bottom:none;padding-bottom:0}
+.related-j:hover .rj-title{color:var(--crimson)}
+.rj-court{font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.rj-title{font-size:12.5px;font-weight:500;line-height:1.3;color:var(--text-pri);transition:color .2s}
+.rj-date{font-size:10.5px;color:var(--text-muted)}
+.ad-box{background:repeating-linear-gradient(45deg,#F0EBE0,#F0EBE0 10px,#E8E2D6 10px,#E8E2D6 20px);border:2px dashed var(--border);border-radius:4px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;margin-bottom:20px}
+.ad-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted)}
+.alert-box{background:linear-gradient(135deg,var(--navy),#1A2E5A);border-radius:4px;padding:16px;margin-bottom:20px}
+.alert-title{font-size:12px;font-weight:700;color:#E8EEF6;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.alert-text{font-size:11.5px;color:#7A9ABB;line-height:1.5;margin-bottom:10px}
+.alert-input{width:100%;padding:7px 10px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:12px;border-radius:3px;outline:none;font-family:var(--sans);margin-bottom:7px}
+.alert-input::placeholder{color:#5A7A9C}
+.alert-btn{width:100%;background:var(--crimson);color:#fff;border:none;padding:8px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.5px;cursor:pointer;font-family:var(--sans)}
+.alert-btn:hover{background:var(--crimson-lt)}
+
+/* Related Judgments bottom section */
+.related-section{background:var(--bg-shade);padding:44px 0;border-top:1px solid var(--border)}
+.rs-title{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:3px solid var(--navy);display:inline-block;margin-bottom:24px}
+.rs-title span{color:var(--crimson)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.related-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:18px;cursor:pointer;transition:var(--tr);position:relative;overflow:hidden}
+.related-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--crimson);transform:scaleY(0);transition:transform .3s}
+.related-card:hover{box-shadow:var(--shadow-md);transform:translateX(3px)}
+.related-card:hover::before{transform:scaleY(1)}
+.rc-court{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.rc-title{font-family:var(--serif);font-size:14.5px;font-weight:600;line-height:1.3;color:var(--text-pri);margin-bottom:8px}
+.rc-summary{font-size:12px;color:var(--text-sec);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rc-meta{font-size:11px;color:var(--text-muted);margin-top:10px;display:flex;align-items:center;gap:8px}
+
+/* Footer */
+.pre-footer{background:var(--navy-mid);padding:20px 0;border-top:3px solid var(--crimson)}
+.pre-footer .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.pf-text{font-size:13px;color:#AAB8CC}.pf-text strong{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.5px;padding:9px 20px;border-radius:3px;cursor:pointer;transition:var(--tr);border:none}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy-mid)}
+.site-footer{background:#050D1F;color:#8899AA;padding:48px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:40px;border-bottom:1px solid #1A2E4A}
+.footer-about .logo-name{color:#E8EEF6;font-size:26px}.footer-about .logo-name span{color:var(--crimson)}
+.footer-about p{font-size:12.5px;line-height:1.6;color:#667788;margin-top:12px}
+.footer-social{display:flex;gap:8px;margin-top:16px}
+.social-icon{width:32px;height:32px;border-radius:50%;border:1px solid #1A2E4A;display:flex;align-items:center;justify-content:center;color:#667788;font-size:12px;cursor:pointer;transition:var(--tr)}
+.social-icon:hover{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.footer-col h4{font-family:var(--serif);font-size:13.5px;font-weight:700;color:#C8D5E8;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #1A2E4A}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:12px;color:#667788;transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-links a::before{content:'›';color:var(--crimson);font-size:14px}
+.footer-links a:hover{color:#C8D5E8}
+.footer-contact p{font-size:12px;color:#667788;margin-bottom:6px;display:flex;align-items:flex-start;gap:8px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 0;font-size:11.5px;color:#445566}
+.footer-bottom a{color:#556677}.footer-bottom a:hover{color:#AAB8CC}
+.footer-bottom-links{display:flex;gap:20px}
+.scroll-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;background:var(--navy);color:#fff;border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-md);transition:var(--tr);z-index:99;border:none}
+.scroll-top.visible{display:flex}.scroll-top:hover{background:var(--crimson);transform:translateY(-2px)}
+.search-modal{position:fixed;inset:0;background:rgba(5,13,31,.92);z-index:999;display:none;align-items:flex-start;justify-content:center;padding-top:100px;backdrop-filter:blur(4px)}
+.search-modal.open{display:flex}
+.search-modal-inner{width:100%;max-width:640px;padding:0 24px}
+.search-input-wrap{position:relative;background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.search-input-wrap input{width:100%;padding:18px 60px 18px 20px;font-size:18px;border:none;outline:none;font-family:var(--body-serif)}
+.search-submit{position:absolute;right:0;top:0;bottom:0;width:60px;background:var(--crimson);border:none;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center}
+.search-hint{font-size:12px;color:#667788;text-align:center;margin-top:12px}
+.search-close{position:absolute;top:60px;right:40px;color:#aaa;font-size:28px;cursor:pointer}
+.search-close:hover{color:#fff}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.judgment-hero{animation:fadeUp .4s ease both}
+.judgment-layout{animation:fadeUp .5s .1s ease both}
+
+@media(max-width:1024px){.judgment-layout{grid-template-columns:1fr}.judgment-sidebar{position:static}}
+@media(max-width:840px){.main-nav{display:none}.hamburger{display:flex}.util-bar{display:none}.subscribe-btn{display:none}.bench-cards{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.jh-title{font-size:24px}.case-parties-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="breaking-bar">
+  <div class="breaking-label"><div class="breaking-dot"></div>Breaking News</div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">SC Constitution Bench reserves order on Centre's power to alter state boundaries</span>
+      <span class="marquee-item">Lok Sabha passes Digital Personal Data Protection Amendment Bill</span>
+      <span class="marquee-item">SC Collegium recommends 17 judges for High Court elevation</span>
+      <span class="marquee-item">NGT imposes ₹50 crore environmental compensation on Aravalli violator</span>
+      <span class="marquee-item">SC Constitution Bench reserves order on Centre's power to alter state boundaries</span>
+      <span class="marquee-item">Lok Sabha passes Digital Personal Data Protection Amendment Bill</span>
+      <span class="marquee-item">SC Collegium recommends 17 judges for High Court elevation</span>
+      <span class="marquee-item">NGT imposes ₹50 crore environmental compensation on Aravalli violator</span>
+    </div>
+  </div>
+</div>
+
+<div class="util-bar">
+  <div class="container">
+    <div class="util-left"><span class="date-tag">Sunday, April 19, 2026</span><span class="edition-pill">New Delhi Edition</span><a href="#">ePaper</a></div>
+    <div class="util-right"><a href="#">Sign In</a><a href="#">Register</a></div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="lawbrief.html" class="logo-wrap">
+        <div class="logo-name">Law<span>Brief</span></div>
+        <div class="logo-tagline">India's Authoritative Legal News Source</div>
+        <div class="logo-rule"><span></span><span></span></div>
+      </a>
+      <nav class="main-nav">
+        <a href="lawbrief.html">Home</a><a href="latest-news.html">Latest News</a>
+        <a href="judgments.html" class="active">Judgments</a>
+        <a href="articles.html">Articles</a><a href="interviews.html">Interviews</a>
+        <a href="#">Columns</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></button>
+        <button class="icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a href="#" class="subscribe-btn">Subscribe</a>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="lawbrief.html">Home</a><a href="judgments.html">Judgments</a>
+    <a href="articles.html">Articles</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="nav-secondary">
+  <div class="container">
+    <a href="judgments.html">All Judgments</a>
+    <a href="#" class="active">Supreme Court</a><a href="#">High Courts</a>
+    <a href="#">Tribunals</a><a href="#">Tax Law</a><a href="#">Constitutional</a>
+    <a href="#">Criminal</a><a href="#">Corporate</a>
+  </div>
+</div>
+
+<!-- Judgment Hero -->
+<div class="judgment-hero">
+  <div class="container">
+    <div class="jh-inner">
+      <div class="breadcrumb">
+        <a href="lawbrief.html">Home</a><span>›</span>
+        <a href="judgments.html">Judgments</a><span>›</span>
+        <a href="#">Supreme Court</a><span>›</span>
+        <span style="color:#AAB8CC">Tax Law</span>
+      </div>
+      <div class="jh-court-pill">⚖️ Supreme Court of India</div>
+      <h1 class="jh-title">Vikram Enterprises<span class="jh-vs">v.</span>Union of India &amp; Ors.</h1>
+      <div class="jh-case-num">Civil Appeal No. 4512 of 2026 · Decided: April 17, 2026</div>
+      <div class="jh-chips">
+        <div class="jh-chip"><strong>Bench:</strong> 2 Judges</div>
+        <div class="jh-chip"><strong>Result:</strong> Appeal Dismissed</div>
+        <div class="jh-chip"><strong>Area:</strong> Tax Law / GST</div>
+        <div class="jh-chip"><strong>Citation:</strong> 2026 SCC OnLine SC 1124</div>
+        <div class="jh-chip"><strong>Reporting:</strong> Not Yet Reported</div>
+      </div>
+      <div class="jh-actions">
+        <button class="jh-btn primary">⬇ Download PDF</button>
+        <button class="jh-btn secondary">📋 Copy Citation</button>
+        <button class="jh-btn secondary">🔖 Save</button>
+        <button class="jh-btn secondary">↗ Share</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Judgment Content -->
+<div class="container">
+  <div class="judgment-layout">
+
+    <div class="judgment-body">
+
+      <!-- Case Parties -->
+      <div class="section-card">
+        <div class="sc-header">
+          <div class="sc-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Parties</div>
+        </div>
+        <div class="sc-body">
+          <div class="case-parties-grid">
+            <div class="party-block">
+              <div class="party-label appellant">Appellant</div>
+              <div class="party-name">Vikram Enterprises (P) Ltd.</div>
+              <div class="party-sub">A registered GST assessee; manufacturer and exporter of industrial machinery components; incorporated under the Companies Act 2013 in Maharashtra</div>
+            </div>
+            <div class="versus-block"><div class="versus">v.</div></div>
+            <div class="party-block">
+              <div class="party-label respondent">Respondents</div>
+              <div class="party-name">Union of India &amp; Ors.</div>
+              <div class="party-sub">Represented by the Ministry of Finance, GST Council, and the Commissioner of Central Goods &amp; Services Tax (Mumbai North Commissionerate)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Background -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title">📋 Background &amp; Facts</div></div>
+        <div class="sc-body">
+          <p>The appellant, Vikram Enterprises, received a notice of demand under the Central Goods and Services Tax Act, 2017 (CGST Act) for ₹4.2 crore in respect of alleged input tax credit (ITC) irregularities spanning the financial years 2018–19 and 2019–20. Pursuant to the CGST Act's adjudication process, the demand was confirmed by the Adjudicating Authority, and the appellant chose to file an appeal before the GST Appellate Authority.</p>
+          <p>Under Section 107(6) of the CGST Act, as amended by the Finance Act 2021, the appellant was required to deposit 10% of the disputed tax demand as a condition precedent for the appeal being entertained. This pre-deposit requirement was challenged by the appellant on the ground that it constituted an unconstitutional restriction on the right to appeal, violating Articles 14 (equality before law) and 19(1)(g) (right to carry on trade or business) of the Constitution.</p>
+          <p>The Bombay High Court dismissed the writ petition filed by the appellant, holding that the pre-deposit requirement was a valid regulatory measure and did not amount to an unreasonable restriction. The present appeal was filed against that judgment.</p>
+        </div>
+      </div>
+
+      <!-- Issues -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title">❓ Issues Framed</div></div>
+        <div class="sc-body">
+          <div class="holdings-list">
+            <div class="holding-item">
+              <div class="holding-num">1</div>
+              <div class="holding-text">Whether the mandatory pre-deposit of 10% of the disputed tax demand under Section 107(6) of the CGST Act, 2017 is violative of <strong>Article 14</strong> of the Constitution of India as being arbitrary and unreasonable?</div>
+            </div>
+            <div class="holding-item">
+              <div class="holding-num">2</div>
+              <div class="holding-text">Whether the said pre-deposit requirement constitutes an unreasonable restriction on the right to carry on trade and business under <strong>Article 19(1)(g)</strong> of the Constitution, not saved by Article 19(6)?</div>
+            </div>
+            <div class="holding-item">
+              <div class="holding-num">3</div>
+              <div class="holding-text">Whether the <strong>doctrine of legitimate expectation</strong> applies to tax statutes that are prospectively amended by Parliament to enhance the pre-deposit threshold?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Holdings -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title" style="display:flex;align-items:center;gap:8px">⚖️ Key Holdings <span style="font-size:11px;color:#7A9ABB;font-weight:500;font-family:var(--sans)">(All by Justices Oka &amp; Agarwal)</span></div></div>
+        <div class="sc-body">
+          <div class="holdings-list">
+            <div class="holding-item">
+              <div class="holding-num" style="background:var(--gold)">H1</div>
+              <div class="holding-text"><strong>Pre-deposit does not violate Article 14.</strong> Parliament has the competence to prescribe conditions precedent for exercising a statutory right of appeal. The classification of appellants who have deposited 10% from those who have not bears a rational nexus to the object of ensuring that the revenue's legitimate interests are not frustrated by frivolous appeals. The doctrine of manifest arbitrariness cannot be invoked where the legislature has made a considered policy choice within its domain.</div>
+            </div>
+            <div class="holding-item">
+              <div class="holding-num" style="background:var(--gold)">H2</div>
+              <div class="holding-text"><strong>No violation of Article 19(1)(g).</strong> The right to file an appeal is a creature of statute; it does not exist independently of the statutory framework. The pre-deposit is a reasonable restriction "in the interests of the general public" within the meaning of Article 19(6), as it serves the legitimate aim of filtering vexatious appeals and protecting government revenue.</div>
+            </div>
+            <div class="holding-item">
+              <div class="holding-num" style="background:var(--gold)">H3</div>
+              <div class="holding-text"><strong>Doctrine of legitimate expectation inapplicable to tax statutes.</strong> An assessee cannot claim a legitimate expectation that the pre-deposit percentage will remain at the level applicable when it first commenced business or when the dispute arose. Tax law is an evolving regulatory domain, and Parliament's power to prospectively amend deposit requirements is well within its plenary legislative competence under Entries 82 and 84 of Union List.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bench Composition -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title">👥 Bench Composition</div></div>
+        <div class="sc-body">
+          <div class="bench-cards">
+            <div class="bench-card">
+              <div class="bc-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=75" alt="Judge"></div>
+              <div>
+                <div class="bc-name">Justice S. Ravindra Bhat (Presiding)</div>
+                <div class="bc-role">Judge, Supreme Court of India</div>
+                <span class="bc-opinion lead-judgment">Lead Judgment</span>
+              </div>
+            </div>
+            <div class="bench-card">
+              <div class="bc-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=75" alt="Judge"></div>
+              <div>
+                <div class="bc-name">Justice Dipankar Datta</div>
+                <div class="bc-role">Judge, Supreme Court of India</div>
+                <span class="bc-opinion majority">Concurring (separate)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cited Cases -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title">📚 Cases Cited</div></div>
+        <div class="sc-body">
+          <div class="cited-case">
+            <div class="cc-dot" style="background:var(--navy)"></div>
+            <div class="cc-body">
+              <div class="cc-name">Anant Mills Co. Ltd. v. State of Gujarat — (1975) 2 SCC 175</div>
+              <div class="cc-meta">Supreme Court · Condition Precedent for Appeal · Distinguished</div>
+            </div>
+          </div>
+          <div class="cited-case">
+            <div class="cc-dot" style="background:var(--navy)"></div>
+            <div class="cc-body">
+              <div class="cc-name">J.K. Synthetics Ltd. v. Commercial Taxes Officer — (1994) 4 SCC 276</div>
+              <div class="cc-meta">Supreme Court · Pre-deposit and Article 14 · Relied upon</div>
+            </div>
+          </div>
+          <div class="cited-case">
+            <div class="cc-dot" style="background:var(--navy)"></div>
+            <div class="cc-body">
+              <div class="cc-name">Raj Kumar Shivhare v. Assistant Director — (2010) 4 SCC 772</div>
+              <div class="cc-meta">Supreme Court · Legitimate expectation in tax — Relied upon</div>
+            </div>
+          </div>
+          <div class="cited-case">
+            <div class="cc-dot" style="background:var(--gold)"></div>
+            <div class="cc-body">
+              <div class="cc-name">Sharafat Ali Khan v. Union of India — 2024 SCC OnLine All 1102</div>
+              <div class="cc-meta">Allahabad HC · CGST pre-deposit challenge · Followed</div>
+            </div>
+          </div>
+          <div class="cited-case">
+            <div class="cc-dot" style="background:var(--crimson)"></div>
+            <div class="cc-body">
+              <div class="cc-name">Gujarat Ambuja Exports v. Union of India — (2005) 11 SCC 514</div>
+              <div class="cc-meta">Supreme Court · Article 19(1)(g) / Trade restrictions · Distinguished</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Commentary -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title">✏️ LawBrief Commentary</div></div>
+        <div class="sc-body">
+          <div class="commentary-box">
+            <div class="cb-label">⭐ Editorial Analysis</div>
+            <p class="cb-text">This judgment settles a question that had produced conflicting outcomes across multiple High Courts — Bombay, Allahabad, Gujarat and Madras had all examined pre-deposit challenges in GST matters with varying reasoning, though all ultimately upheld the requirement. The Supreme Court's consolidation of the doctrinal basis is therefore welcome, even if the outcome was unsurprising. The most significant aspect of the judgment is the Court's categorical rejection of the legitimate expectation argument, which had found some traction at the High Court level. Practitioners advising assessees in pending CGST appeals should note that there is now no constitutional basis for challenging the 10% pre-deposit, though challenges specific to cases where the demand itself is ex facie without jurisdiction may still survive under a different legal theory.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Details Table -->
+      <div class="section-card">
+        <div class="sc-header"><div class="sc-title">📑 Case Details</div></div>
+        <div class="sc-body">
+          <table class="detail-table">
+            <tr><td>Full Citation</td><td>2026 SCC OnLine SC 1124; (2026) 4 Supreme Court Cases __ (Forthcoming)</td></tr>
+            <tr><td>Court</td><td>Supreme Court of India — Civil Appellate Jurisdiction</td></tr>
+            <tr><td>Date of Decision</td><td>April 17, 2026</td></tr>
+            <tr><td>Neutral Citation</td><td>[2026] 4 SCR 210</td></tr>
+            <tr><td>Statute(s)</td><td>Central Goods and Services Tax Act, 2017 — Sections 107, 107(6); Constitution of India — Articles 14, 19(1)(g), 19(6)</td></tr>
+            <tr><td>Counsel (Appellant)</td><td>Senior Advocate N.K. Mehrotra, Ms. Priya Kapoor (instructed by M/s. Nanda &amp; Co.)</td></tr>
+            <tr><td>Counsel (Respondents)</td><td>Additional Solicitor General Vikram Nankani, Mr. S. Rajan (for Union of India)</td></tr>
+            <tr><td>Lower Court</td><td>Bombay High Court — W.P. 9921/2024 — Dismissed on September 12, 2025</td></tr>
+            <tr><td>Result</td><td>Civil Appeal dismissed; High Court judgment affirmed; no order as to costs</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tags + Share -->
+      <div class="judgment-tags">
+        <span class="jt-label">Topics:</span>
+        <span class="j-tag">GST Act 2017</span>
+        <span class="j-tag">Pre-Deposit</span>
+        <span class="j-tag">Article 14</span>
+        <span class="j-tag">Tax Appeals</span>
+        <span class="j-tag">Article 19(1)(g)</span>
+        <span class="j-tag">Legitimate Expectation</span>
+      </div>
+      <div class="share-row">
+        <div class="sr-label">Share this Judgment</div>
+        <div class="sr-btns">
+          <button class="sr-btn x">𝕏 Twitter</button>
+          <button class="sr-btn wa">💬 WhatsApp</button>
+          <button class="sr-btn copy" onclick="this.textContent='✓ Copied!'">🔗 Copy Link</button>
+        </div>
+      </div>
+
+    </div><!-- /judgment-body -->
+
+    <!-- Sidebar -->
+    <aside class="judgment-sidebar">
+
+      <div class="sidebar-widget">
+        <div class="widget-title">📊 Quick Facts</div>
+        <div class="widget-body">
+          <div class="case-stat"><span class="cs-label">Decided</span><span class="cs-val">April 17, 2026</span></div>
+          <div class="case-stat"><span class="cs-label">Court</span><span class="cs-val">Supreme Court</span></div>
+          <div class="case-stat"><span class="cs-label">Bench Size</span><span class="cs-val">2 Judges</span></div>
+          <div class="case-stat"><span class="cs-label">Result</span><span class="cs-val" style="color:var(--crimson)">Dismissed</span></div>
+          <div class="case-stat"><span class="cs-label">Law Area</span><span class="cs-val">Tax Law</span></div>
+          <div class="case-stat"><span class="cs-label">Citations</span><span class="cs-val">5 cases</span></div>
+        </div>
+      </div>
+
+      <!-- Alert / Follow -->
+      <div class="alert-box">
+        <div class="alert-title">🔔 Track Similar Cases</div>
+        <p class="alert-text">Get email alerts when new GST / tax judgments are decided or when this case is cited.</p>
+        <input type="email" class="alert-input" placeholder="Your email address">
+        <button class="alert-btn" onclick="this.textContent='✓ Alert Set!'">Set Alert</button>
+      </div>
+
+      <!-- Related Judgments -->
+      <div class="sidebar-widget">
+        <div class="widget-title">Related Judgments</div>
+        <div class="widget-body" style="padding:10px 14px">
+          <div class="related-j">
+            <div class="rj-court">Supreme Court</div>
+            <div class="rj-title">Anant Mills v. State of Gujarat — Pre-deposit validity under Sales Tax Act</div>
+            <div class="rj-date">(1975) 2 SCC 175</div>
+          </div>
+          <div class="related-j">
+            <div class="rj-court">Gujarat HC</div>
+            <div class="rj-title">Shyam Sunder Sharma v. Union of India — GST Section 107(6) challenge</div>
+            <div class="rj-date">2024 SCC OnLine Guj 2210</div>
+          </div>
+          <div class="related-j">
+            <div class="rj-court">Bombay HC</div>
+            <div class="rj-title">Nagarjuna Agro v. CGST Commissioner — ITC reversal dispute</div>
+            <div class="rj-date">2025 SCC OnLine Bom 880</div>
+          </div>
+          <div class="related-j">
+            <div class="rj-court">Allahabad HC</div>
+            <div class="rj-title">Rishi Tex India v. CCT — Pre-deposit quantum challenge under CGST</div>
+            <div class="rj-date">2024 SCC OnLine All 1102</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-box"><div style="font-size:26px;opacity:.3">📢</div><div class="ad-label">Advertisement · 300×200</div></div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- Related Judgments Section -->
+<div class="related-section">
+  <div class="container">
+    <h2 class="rs-title">More <span>Supreme Court</span> Judgments</h2>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="rc-court">Supreme Court</div>
+        <h3 class="rc-title">State of Uttarakhand v. Union of India — Centre's Power to Alter State Boundaries Under Article 3</h3>
+        <p class="rc-summary">Five-judge Constitution Bench holds that Parliament must meaningfully consult affected state legislature, though its consent is not mandatory. 4:1 majority with a noteworthy dissent on federal compact.</p>
+        <div class="rc-meta"><span class="tag" style="font-size:9px;padding:2px 7px">Constitution Bench</span><span>Apr 17, 2026</span></div>
+      </div>
+      <div class="related-card">
+        <div class="rc-court">Delhi High Court</div>
+        <h3 class="rc-title">Priya Sharma v. State of Delhi — Constitutional Tort &amp; Custodial Rights Under Article 21</h3>
+        <p class="rc-summary">Delhi HC directs ₹5 lakh compensation to victim of unlawful custodial detention, invoking constitutional tort doctrine and State's vicarious liability for officers' fundamental rights violations.</p>
+        <div class="rc-meta"><span class="tag navy" style="font-size:9px;padding:2px 7px">Article 21</span><span>Apr 16, 2026</span></div>
+      </div>
+      <div class="related-card">
+        <div class="rc-court">NGT — Principal Bench</div>
+        <h3 class="rc-title">Green Advocates Forum v. MoEFCC — Environmental Compensation for Illegal Forest Diversion in Aravalli</h3>
+        <p class="rc-summary">NGT imposes ₹50 crore environmental compensation; orders restoration plan within 90 days; appoints court-commissioned oversight committee under the Forest Conservation Act, 1980.</p>
+        <div class="rc-meta"><span class="tag green" style="font-size:9px;padding:2px 7px">Environment</span><span>Apr 15, 2026</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pre-footer">
+  <div class="container">
+    <div class="pf-text"><strong>LawBrief Premium</strong> — Full judgment database, AI-powered case research &amp; expert webinars.</div>
+    <div style="display:flex;gap:12px;flex-shrink:0"><a href="#" class="btn btn-primary">Start Free Trial</a></div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo-name">Law<span>Brief</span></div>
+        <p>India's most trusted source for legal news, court judgments and expert opinions.</p>
+        <div class="footer-social"><div class="social-icon">𝕏</div><div class="social-icon">in</div><div class="social-icon">f</div><div class="social-icon">▶</div></div>
+      </div>
+      <div class="footer-col"><h4>Coverage Areas</h4><div class="footer-links"><a href="#">Supreme Court</a><a href="#">High Courts</a><a href="#">Tax Law</a><a href="#">Constitutional Law</a><a href="#">Corporate Law</a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="#">About LawBrief</a><a href="#">Write for Us</a><a href="#">Advertise</a><a href="#">Privacy Policy</a></div></div>
+      <div class="footer-col footer-contact"><h4>Contact Us</h4><p>newsdesk@lawbrief.in</p><div style="margin-top:12px"><a href="#" class="btn btn-primary" style="font-size:11px">Subscribe</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 LawBrief Media Pvt. Ltd. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<div class="search-modal" id="searchModal">
+  <span class="search-close" id="searchClose">✕</span>
+  <div class="search-modal-inner">
+    <div class="search-input-wrap">
+      <input type="text" placeholder="Search judgments, citations, case names…" id="searchInput" autocomplete="off">
+      <button class="search-submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></button>
+    </div>
+    <p class="search-hint">Try: "CGST pre-deposit", "Article 14 tax", "Section 107"</p>
+  </div>
+</div>
+<button class="scroll-top" id="scrollTop"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+const header=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>60);document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);},{passive:true});
+document.getElementById('scrollTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const modal=document.getElementById('searchModal');
+document.getElementById('searchToggle').addEventListener('click',()=>{modal.classList.add('open');setTimeout(()=>document.getElementById('searchInput').focus(),100)});
+document.getElementById('searchClose').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileNav').classList.toggle('open'));
+</script>
+</body>
+</html>

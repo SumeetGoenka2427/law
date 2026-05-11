@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title', ($judgment->meta_title ?? $judgment->title).' — TestLaw')
 @section('meta_description', $judgment->meta_description ?? $judgment->excerpt)
+@section('og_title', $judgment->meta_title ?? $judgment->title)
+@section('og_description', $judgment->meta_description ?? $judgment->excerpt)
+@if($judgment->og_image)@section('og_image', asset('storage/'.$judgment->og_image))@endif
+@section('og_type', 'article')
 
 @section('content')
 <main>
@@ -21,6 +25,10 @@
                     <div class="mb-4"><a href="{{ asset('storage/'.$judgment->pdf_file) }}" target="_blank" class="btn btn-outline-dark btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Download PDF</a></div>
                     @endif
                     <div class="article-body" style="line-height:1.8;font-size:1rem">{!! nl2br(e($judgment->content)) !!}</div>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <x-share-buttons :url="url()->current()" :title="$judgment->title" />
+                    </div>
                 </article>
                 @if($related->isNotEmpty())
                 <div class="mt-5">

@@ -6064,3 +6064,217 @@ ul {
     gap: 20px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES — Final authority (appended last)
+   Breakpoints: 1200px / 1024px / 840px / 600px / 480px
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Ensure images never overflow ──────────────────────── */
+img { max-width: 100%; height: auto; }
+.hero-main img,
+.hero-thumb img,
+.if-img img,
+.of-img img { width: 100%; }
+
+/* ── Nav secondary horizontal scroll on mobile ─────────── */
+.nav-secondary .container {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-secondary .container::-webkit-scrollbar { display: none; }
+
+/* ── Pre-footer always stacks on small screens ─────────── */
+@media (max-width: 600px) {
+  .pre-footer .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .pre-footer .btn { width: 100%; justify-content: center; }
+}
+
+/* ─── 1200px — Large tablet ────────────────────────────── */
+@media (max-width: 1200px) {
+  .container { padding: 0 20px; }
+  .hero-grid { grid-template-columns: 1fr 240px; }
+  .as-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; }
+}
+
+/* ─── 1024px — Tablet landscape ────────────────────────── */
+@media (max-width: 1024px) {
+  /* Layout */
+  .main-content { grid-template-columns: 1fr !important; }
+  .main-layout   { grid-template-columns: 1fr !important; }
+  .sidebar-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Page hero */
+  .ph-inner { grid-template-columns: 1fr !important; }
+  .ph-right { display: none; }
+
+  /* Lead story */
+  .lead-story { grid-template-columns: 1fr 300px; }
+
+  /* Section title */
+  .section-title { font-size: 19px; }
+}
+
+/* ─── 840px — Tablet portrait ──────────────────────────── */
+@media (max-width: 840px) {
+  /* Navigation */
+  .main-nav    { display: none !important; }
+  .hamburger   { display: flex !important; }
+  .util-bar    { display: none !important; }
+  .subscribe-btn { display: none; }
+
+  /* Container */
+  .container { padding: 0 16px; }
+
+  /* Hero */
+  .hero-grid  { grid-template-columns: 1fr; gap: 16px; }
+  .hero-main img { height: 280px; }
+  .hero-side  { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+  .hero-thumb { flex: 1 1 45%; }
+
+  /* Headline fonts */
+  .hero-headline  { font-size: 22px !important; }
+  .section-title  { font-size: 18px; }
+  .ph-title       { font-size: 30px !important; }
+  .page-title     { font-size: 28px; }
+
+  /* Lead story */
+  .lead-story { grid-template-columns: 1fr; }
+  .lead-img   { min-height: 220px; height: 220px; }
+
+  /* News grid */
+  .news-grid  { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Visual grid */
+  .visual-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Opinion / Interview feature */
+  .opinion-feature   { grid-template-columns: 1fr !important; }
+  .of-img            { min-height: 220px; }
+  .opinion-grid      { grid-template-columns: 1fr !important; }
+  .interview-feature { grid-template-columns: 1fr !important; }
+  .if-img            { min-height: 200px; }
+  .if-img::after     { display: none; }
+
+  /* Author spotlight */
+  .as-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Footer */
+  .footer-grid   { grid-template-columns: 1fr 1fr !important; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-bottom-links { justify-content: center; }
+}
+
+/* ─── 600px — Large phone ───────────────────────────────── */
+@media (max-width: 600px) {
+  /* Container */
+  .container { padding: 0 12px; }
+
+  /* Breaking bar */
+  .breaking-label { padding: 0 12px; font-size: 9px; letter-spacing: 1px; }
+
+  /* Header */
+  .logo-name    { font-size: 22px !important; }
+  .logo-tagline { display: none; }
+  .logo-rule    { display: none; }
+
+  /* Hero */
+  .hero-main img  { height: 220px; }
+  .hero-headline  { font-size: 18px !important; }
+  .hero-side      { display: none; }
+
+  /* Lead story */
+  .lead-body { padding: 16px; }
+
+  /* News grid */
+  .news-grid { grid-template-columns: 1fr !important; }
+
+  /* Visual grid */
+  .visual-grid { grid-template-columns: 1fr; }
+  .visual-card { height: 140px; }
+
+  /* Section title */
+  .section-title { font-size: 17px; }
+  .ph-title      { font-size: 22px !important; }
+
+  /* Author spotlight */
+  .as-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Sidebar */
+  .sidebar-col { grid-template-columns: 1fr !important; }
+
+  /* Footer */
+  .footer-grid   { grid-template-columns: 1fr !important; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-bottom-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  /* Search modal */
+  .search-modal-inner { padding: 0 12px; }
+  .search-input-wrap input { font-size: 15px; padding: 14px 54px 14px 14px; }
+
+  /* Share buttons */
+  .share-bar { flex-wrap: wrap; gap: 6px; }
+}
+
+/* ─── 480px — Small phone ───────────────────────────────── */
+@media (max-width: 480px) {
+  /* Body font */
+  body { font-size: 14px; }
+
+  /* Hero */
+  .hero-main img { height: 190px; }
+  .hero-headline { font-size: 16px !important; }
+
+  /* Judgments */
+  .judgments-list { gap: 12px; }
+  .jc-meta { flex-wrap: wrap; gap: 4px; }
+
+  /* Article detail */
+  .article-title { font-size: 1.5rem !important; }
+  .article-body  { font-size: 1rem !important; line-height: 1.7; }
+
+  /* Opinion / Interview detail */
+  .of-title, .if-title { font-size: 1.4rem !important; }
+
+  /* Page hero stats */
+  .page-hero-stats { flex-wrap: wrap; gap: 16px; }
+
+  /* Filter bar */
+  .filter-inner { flex-wrap: wrap; gap: 6px; }
+  .filter-btn   { font-size: 11px; padding: 5px 10px; }
+
+  /* Author spotlight grid */
+  .as-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Scroll to top */
+  .scroll-top { bottom: 16px; right: 16px; width: 36px; height: 36px; }
+}
+
+/* ── Admin panel mobile fixes ───────────────────────────── */
+@media (max-width: 840px) {
+  .admin-table-wrap,
+  .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  table { min-width: 600px; }
+
+  .admin-sidebar { display: none; }
+  .admin-content { margin-left: 0 !important; }
+}
+
+/* ── Utility overrides ──────────────────────────────────── */
+.img-fluid { max-width: 100%; height: auto; object-fit: cover; }
+.w-100-mobile { width: 100%; }
+

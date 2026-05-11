@@ -40,6 +40,12 @@ class Article extends Model
     public function author() { return $this->belongsTo(Author::class); }
     public function tags() { return $this->belongsToMany(Tag::class); }
 
+    public function getReadingTimeAttribute(): string
+    {
+        $minutes = (int) ceil(str_word_count(strip_tags($this->content ?? '')) / 200);
+        return max(1, $minutes) . ' min read';
+    }
+
     public function scopePublished($q) { return $q->where('status', 'published'); }
     public function scopeFeatured($q) { return $q->where('is_featured', true); }
 }

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title', ($interview->meta_title ?? $interview->title).' — TestLaw')
 @section('meta_description', $interview->meta_description ?? $interview->excerpt)
+@section('og_title', $interview->meta_title ?? $interview->title)
+@section('og_description', $interview->meta_description ?? $interview->excerpt)
+@if($interview->og_image)@section('og_image', asset('storage/'.$interview->og_image))@endif
+@section('og_type', 'article')
 
 @section('content')
 <main>
@@ -19,10 +23,16 @@
                     <div class="article-body" style="line-height:1.8;font-size:1.05rem">{!! nl2br(e($interview->content)) !!}</div>
                     @if($interview->author)
                     <div class="mt-4 pt-3 border-top text-muted small">
-                        Interview conducted by {{ $interview->author->name }}
+                        Interview conducted by
+                        <a href="{{ route('author.show', $interview->author->slug) }}" class="text-decoration-none text-muted fw-semibold">{{ $interview->author->name }}</a>
                         @if($interview->published_at) on {{ $interview->published_at->format('F j, Y') }}@endif
+                        <span class="ms-2">· {{ $interview->reading_time }}</span>
                     </div>
                     @endif
+
+                    <div class="mt-3">
+                        <x-share-buttons :url="url()->current()" :title="$interview->title" />
+                    </div>
                 </article>
             </div>
         </div>

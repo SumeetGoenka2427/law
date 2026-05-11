@@ -55,6 +55,7 @@
                 <a href="{{ route('judgments') }}" class="{{ request()->routeIs('judgments*') ? 'active' : '' }}">Judgments</a>
                 <a href="{{ route('articles') }}" class="{{ request()->routeIs('articles*') ? 'active' : '' }}">Articles</a>
                 <a href="{{ route('interviews') }}" class="{{ request()->routeIs('interviews*') ? 'active' : '' }}">Interviews</a>
+                <a href="{{ route('opinions') }}" class="{{ request()->routeIs('opinions*') ? 'active' : '' }}">Opinions</a>
             </nav>
 
             <div class="header-actions">
@@ -75,6 +76,7 @@
         <a href="{{ route('judgments') }}">Judgments</a>
         <a href="{{ route('articles') }}">Articles</a>
         <a href="{{ route('interviews') }}">Interviews</a>
+        <a href="{{ route('opinions') }}">Opinions</a>
     </nav>
 </header>
 
@@ -85,5 +87,6 @@
         <a href="{{ route('judgments') }}">Judgments</a>
         <a href="{{ route('articles') }}">Articles</a>
         <a href="{{ route('interviews') }}">Interviews</a>
+        <a href="{{ route('opinions') }}">Opinions</a>
     </div>
 </div>

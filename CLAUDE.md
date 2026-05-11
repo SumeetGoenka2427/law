@@ -1,389 +1,251 @@
-# CMS & Admin Architecture Rules
+# Responsive & Mobile Rules
 
-## Admin Panel Goal
+Mobile responsiveness is mandatory.
 
-Admin panel should use:
+Check entire project UI and CSS for:
 
-MVC architecture
-Laravel controllers
-Blade templates
-Bootstrap 5
+* responsiveness
+* overflow issues
+* broken layouts
+* spacing issues
+* font scaling
+* image scaling
+* navbar/mobile menu
+* tables/cards/forms
+* sidebar behavior
+* grid alignment
+
+Review ALL:
+
+* Blade pages
+* partials
+* components
+* Bootstrap layouts
+* custom CSS
+
+---
+
+# Responsive Requirements
+
+Support:
+
+* mobile
+* tablet
+* laptop
+* large desktop
+
+Primary focus:
+
+* mobile first
+* clean tablet layout
+* stable desktop layout
+
+---
+
+# Bootstrap Rules
+
+Use proper Bootstrap 5 responsive classes:
+
+Examples:
+
+* col-12
+* col-md-6
+* col-lg-4
+* d-none d-md-block
+* flex-column flex-lg-row
+
+Avoid fixed widths whenever possible.
+
+Use:
+
+* container
+* container-fluid
+* row
+* g-* spacing classes
+
+---
+
+# Mobile Navigation Rules
+
+Navbar must:
+
+* collapse properly
+* have working toggle
+* avoid overflow
+* support dropdowns on mobile
+
+Fix:
+
+* broken menus
+* overlapping elements
+* hidden links
+
+---
+
+# Typography Rules
+
+Ensure:
+
+* readable font sizes
+* proper line-height
+* no text overflow
+* proper heading scaling
 
 Avoid:
 
-Livewire admin dashboards
-heavy reactive components
-unnecessary AJAX complexity
-
-Use standard Laravel CRUD structure.
-
-Example:
-
-Route::resource('articles', ArticleController::class);
-
-Admin will manage all website content dynamically through backend dashboard.
-
-Everything must be database-driven.
-
-No hardcoded frontend content.
+* giant mobile headings
+* tiny text
+* horizontal scrolling
 
 ---
 
-# Backend Requirements
+# Image Rules
 
-Create complete CRUD for:
+All images must:
 
-* Homepage Sections
-* Articles
-* Latest News
-* Interviews
-* Judgments
-* Opinions
-* Categories
-* Tags
-* Sidebar Content
-* Advertisements
-* Authors
-* Media Uploads
-
-Admin can:
-
-* Create
-* Edit
-* Delete
-* Publish
-* Unpublish
-* Feature content
-
----
-
-# Database Rules
-
-Create separate tables for each content type.
-
-Examples:
-
-* articles
-* interviews
-* judgments
-* latest_news
-* homepage_sections
-* advertisements
-* authors
-* categories
-* tags
-
-Use proper relationships.
-
-Examples:
-
-* article belongsTo category
-* article belongsTo author
-* article hasMany tags
-
----
-
-# Migration Rules
-
-Generate:
-
-* migrations
-* models
-* controllers
-* requests
-* relationships
+* scale correctly
+* use responsive classes
+* avoid stretching
 
 Use:
 
-* foreign keys
-* indexes
-* soft deletes where useful
+* img-fluid
+* object-fit where needed
 
-Example columns:
-
-* title
-* slug
-* excerpt
-* content
-* image
-* status
-* published_at
-* meta_title
-* meta_description
+Prevent layout breaking.
 
 ---
 
-# Admin Controller Rules
+# Card & Grid Rules
 
-Store inside:
+Cards must:
 
-app/Http/Controllers/Admin/
+* stack properly on mobile
+* maintain spacing
+* keep equal alignment
 
-Examples:
+Avoid:
 
-* ArticleController
-* JudgmentController
-* InterviewController
-* HomepageController
-
-Controllers must handle:
-
-* CRUD
-* validation
-* file uploads
-* publish status
-
-Keep methods clean and small.
+* broken heights
+* overflow text
+* uneven grids
 
 ---
 
-# Frontend Controller Rules
+# Sidebar Rules
 
-Frontend pages must use separate controllers.
+On mobile:
 
-Examples:
+* move sidebar below content
+  OR
+* collapse appropriately
 
-app/Http/Controllers/
-
-* HomeController
-* NewsController
-* JudgmentController
-* InterviewController
-
-Frontend controllers should:
-
-* fetch published data only
-* optimize queries
-* use eager loading
+Never break mobile layout.
 
 ---
 
-# Blade Architecture
+# Table Rules
+
+Large tables must:
+
+* scroll horizontally
+  OR
+* convert responsively
 
 Use:
 
-resources/views/
-├── admin/
-├── pages/
-├── partials/
-├── components/
-
----
-
-# Homepage Rules
-
-Homepage sections must load dynamically from database.
-
-Examples:
-
-```blade
-@include('partials.home.hero')
-@include('partials.home.news-grid')
-@include('partials.home.judgments')
-@include('partials.home.opinions')
-@include('partials.home.visual')
-```
-
-Each partial must receive dynamic database data.
-
-Avoid hardcoded text.
-
----
-
-# Storage Rules
-
-Use Laravel Storage system.
-
-Store uploads in:
-
-storage/app/public/
-
-Run:
-
-```bash
-php artisan storage:link
-```
-
-Use:
-
-```php
-Storage::disk('public')
-```
-
-Images should display using:
-
-```blade
-asset('storage/'.$item->image)
+```html id="mjlwm1"
+<div class="table-responsive">
 ```
 
 ---
 
-# Upload Rules
+# Form Rules
 
-Admin can upload:
+Forms must:
 
-* featured images
-* article thumbnails
-* PDFs
-* judgment documents
-* author images
+* fit mobile screens
+* have proper spacing
+* use responsive inputs/buttons
 
-Validate:
+Buttons should:
 
-* file types
-* size
-* mime types
-
-Delete old files on update/delete.
+* stack properly on small devices
+* avoid overflow
 
 ---
 
-# Publish Rules
+# CSS Optimization Rules
 
-Frontend must show ONLY:
+Review:
+resources/css/style.css
 
-```php
-status = published
-```
+Fix:
 
-Use statuses:
+* duplicate styles
+* conflicting styles
+* hardcoded widths/heights
+* unnecessary !important usage
 
-* draft
-* published
-* archived
+Prefer:
 
----
+* Bootstrap utilities
+* reusable classes
 
-# Slug Rules
-
-Auto-generate unique slugs.
-
-Use slugs in frontend URLs.
-
-Example:
-
-```php
-/news/supreme-court-verdict
-```
-
----
-
-# SEO Rules
-
-Every major content table should support:
-
-* meta_title
-* meta_description
-* og_image
-
----
-
-# Admin UI Rules
-
-Use:
-
-* Bootstrap 5
-* reusable forms
-* reusable tables
-* reusable alerts
-
-Avoid duplicated admin markup.
-
----
-
-# Route Rules
-
-Use grouped routes.
-
-Example:
-
-```php
-Route::prefix('admin')
-    ->middleware(['auth'])
-    ->group(function () {
-
-    });
-```
-
-Use resource controllers where suitable.
+Do not rewrite entire CSS unnecessarily.
 
 ---
 
 # Performance Rules
 
-Use:
+Optimize:
 
-* eager loading
-* pagination
-* caching where useful
+* images
+* CSS duplication
+* excessive DOM nesting
 
 Avoid:
 
-* N+1 queries
-* unnecessary Livewire requests
+* massive inline CSS
+* unnecessary JS for responsiveness
 
 ---
 
-# Livewire Rules
-Use Livewire ONLY for frontend user panel features.
+# Testing Rules
 
-Do NOT use Livewire in admin panel.
+Check responsiveness for:
 
-Admin panel must use:
-
-Controllers
-Blade views
-Standard Laravel forms
-Resource controllers
-Bootstrap modals/tables/forms
-
-Do not create giant Livewire components.
-
-Keep components isolated.
+* homepage
+* article pages
+* judgment pages
+* interview pages
+* admin panel
+* forms
+* search pages
+* pagination
+* share buttons
 
 ---
 
-# Security Rules
+# Output Rules
 
-Validate all admin inputs.
+When fixing responsiveness:
 
-Use:
-
-* form requests
-* mass assignment protection
-* authorization checks
-
-Sanitize rich text content if needed.
-
----
-
-# Code Generation Rules
-
-When generating code always include:
-
-* migration
-* model
-* controller
-* routes
-* blade views
-* relationships
-
-Output only required files.
-
-Avoid rewriting entire project.
+* output only changed files
+* explain only important fixes
+* avoid rewriting entire files
+* keep token usage low
 
 ---
 
 # Final Goal
 
-Generate scalable legal news portal architecture with:
+Ensure entire Laravel project is:
 
-* dynamic CMS backend
-* database-driven frontend
-* admin-controlled publishing
-* reusable Blade structure
-* optimized Laravel architecture
-* Bootstrap 5 UI
-* minimal Livewire usage
-* scalable CRUD system
-* clean MVC structure
+* fully responsive
+* mobile friendly
+* Bootstrap optimized
+* production ready
+* visually consistent
+* clean on all screen sizes
+* free from overflow/layout issues

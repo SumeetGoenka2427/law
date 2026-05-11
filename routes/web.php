@@ -6,6 +6,11 @@ use App\Http\Controllers\LatestNewsController;
 use App\Http\Controllers\JudgmentController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\CategoryPageController;
+use App\Http\Controllers\TagPageController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AuthorPageController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
@@ -28,6 +33,12 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews');
 Route::get('/interviews/{slug}', [InterviewController::class, 'show'])->name('interviews.show');
+Route::get('/opinions', [OpinionController::class, 'index'])->name('opinions');
+Route::get('/opinions/{slug}', [OpinionController::class, 'show'])->name('opinions.show');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/category/{slug}', [CategoryPageController::class, 'show'])->name('category.show');
+Route::get('/tag/{slug}', [TagPageController::class, 'show'])->name('tag.show');
+Route::get('/author/{slug}', [AuthorPageController::class, 'show'])->name('author.show');
 
 // ─── Admin Auth ───────────────────────────────────────────────────────────────
 Route::prefix('admin')->name('admin.')->group(function () {

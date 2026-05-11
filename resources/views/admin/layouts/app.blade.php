@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <style>
         body { font-family: 'DM Sans', sans-serif; background: #f4f6f9; }
-        .sidebar { width: 250px; min-height: 100vh; background: #1a1a2e; position: fixed; top: 0; left: 0; z-index: 100; }
+        .sidebar { width: 250px; min-height: 100vh; background: #1a1a2e; position: fixed; top: 0; left: 0; z-index: 1040; overflow-y: auto; transition: transform .3s ease; }
         .sidebar .brand { padding: 1.5rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.1); }
         .sidebar .brand a { color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 700; }
         .sidebar .brand span { color: #c9a84c; }
@@ -18,8 +18,8 @@
         .sidebar .nav-link { color: rgba(255,255,255,.7); padding: .55rem 1.25rem; border-radius: 0; font-size: .88rem; display: flex; align-items: center; gap: .6rem; }
         .sidebar .nav-link:hover, .sidebar .nav-link.active { color: #fff; background: rgba(255,255,255,.08); }
         .sidebar .nav-link i { font-size: 1rem; width: 1.2rem; text-align: center; }
-        .main-wrap { margin-left: 250px; }
-        .topbar { background: #fff; border-bottom: 1px solid #e9ecef; padding: .75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .main-wrap { margin-left: 250px; min-height: 100vh; }
+        .topbar { background: #fff; border-bottom: 1px solid #e9ecef; padding: .75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .topbar .page-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
         .content-area { padding: 1.5rem; }
         .card { border: 0; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
@@ -37,6 +37,20 @@
         .stat-card.danger { border-color: #dc3545; }
         .stat-number { font-size: 1.8rem; font-weight: 700; }
         .stat-label { font-size: .8rem; color: #6c757d; }
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1039; }
+        @media (max-width: 991px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.open { display: block; }
+            .main-wrap { margin-left: 0; }
+            .content-area { padding: 1rem; }
+            .stat-number { font-size: 1.4rem; }
+        }
+        @media (max-width: 576px) {
+            .content-area { padding: .75rem; }
+            .topbar { padding: .6rem 1rem; }
+            .topbar .page-title { font-size: .9rem; }
+        }
     </style>
     @stack('styles')
 </head>

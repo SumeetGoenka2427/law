@@ -6,7 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LatestNewsRequest extends FormRequest
 {
-    public function authorize(): bool { return true; }
+    public function authorize(): bool
+    {
+        return true;
+    }
 
     public function rules(): array
     {
@@ -18,7 +21,7 @@ class LatestNewsRequest extends FormRequest
             'excerpt'          => ['nullable', 'string', 'max:500'],
             'content'          => ['required', 'string'],
             'image'            => ['nullable', 'image', 'max:2048'],
-            'status'           => ['required', 'in:draft,published,archived'],
+            'status'           => ['nullable', 'in:draft,published,archived'],
             'is_featured'      => ['nullable', 'boolean'],
             'is_breaking'      => ['nullable', 'boolean'],
             'published_at'     => ['nullable', 'date'],

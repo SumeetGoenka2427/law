@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title', ($article->meta_title ?? $article->title).' — TestLaw')
 @section('meta_description', $article->meta_description ?? $article->excerpt)
+@section('og_title', $article->meta_title ?? $article->title)
+@section('og_description', $article->meta_description ?? $article->excerpt)
+@if($article->og_image)@section('og_image', asset('storage/'.$article->og_image))@endif
+@section('og_type', 'article')
 
 @section('content')
 <main>
@@ -11,16 +15,26 @@
                     <div class="article-meta mb-3">
                         @if($article->category)<span class="tag">{{ $article->category->name }}</span>@endif
                         <span class="text-muted small ms-2">{{ $article->published_at?->format('F j, Y') }}</span>
-                        @if($article->author)<span class="text-muted small ms-2">By {{ $article->author->name }}</span>@endif
+                        @if($article->author)
+                            <span class="text-muted small ms-2">By
+                                <a href="{{ route('author.show', $article->author->slug) }}" class="text-decoration-none text-muted fw-semibold">{{ $article->author->name }}</a>
+                            </span>
+                        @endif
+                        <span class="text-muted small ms-2">· {{ $article->reading_time }}</span>
                     </div>
                     <h1 class="article-title" style="font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:1rem">{{ $article->title }}</h1>
                     @if($article->excerpt)<p class="article-excerpt text-muted" style="font-size:1.1rem;margin-bottom:1.5rem">{{ $article->excerpt }}</p>@endif
                     @if($article->image)<div class="article-hero-img mb-4"><img src="{{ asset('storage/'.$article->image) }}" alt="{{ $article->title }}" class="img-fluid rounded" style="width:100%" /></div>@endif
                     <div class="article-body" style="line-height:1.8;font-size:1.05rem">{!! nl2br(e($article->content)) !!}</div>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <x-share-buttons :url="url()->current()" :title="$article->title" />
+                    </div>
+
                     @if($article->tags->isNotEmpty())
                     <div class="article-tags mt-4">
                         @foreach($article->tags as $tag)
-                        <span class="badge bg-light text-dark border me-1">{{ $tag->name }}</span>
+                        <a href="{{ route('tag.show', $tag->slug) }}" class="badge bg-light text-dark border me-1 text-decoration-none">{{ $tag->name }}</a>
                         @endforeach
                     </div>
                     @endif

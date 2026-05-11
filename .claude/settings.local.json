@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(composer require *)",
+      "Bash(Get-ChildItem -Path \"d:\\\\xampp824\\\\htdocs\\\\law\" -Directory)",
+      "Bash(Select-Object Name)"
+    ]
+  }
+}

@@ -1,0 +1,1352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TestLaw — India's Premier Legal News Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <!-- ═══ Breaking News Bar ══════════════════════════════════ -->
+    <div class="breaking-bar">
+      <div class="breaking-label">
+        <div class="breaking-dot"></div>
+        Breaking News
+      </div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" id="marqueeTrack">
+          <span class="marquee-item"
+            >Supreme Court upholds Right to Privacy in landmark digital data
+            case involving Meta India</span
+          >
+          <span class="marquee-item"
+            >Delhi High Court directs CBI to submit final report in judicial
+            appointments corruption probe</span
+          >
+          <span class="marquee-item"
+            >Bombay HC stays ordinance on OBC quota expansion pending
+            constitutional review</span
+          >
+          <span class="marquee-item"
+            >SC bench constituted to examine validity of electoral bond scheme;
+            hearing Dec 12</span
+          >
+          <span class="marquee-item"
+            >Madras HC strikes down Tamil Nadu police circular restricting bail
+            applications</span
+          >
+          <span class="marquee-item"
+            >AG for India defends demonetisation verdict before five-judge
+            constitutional bench</span
+          >
+          <span class="marquee-item"
+            >Allahabad HC issues contempt notice to UP officials over delayed
+            POCSO trials</span
+          >
+          <span class="marquee-item"
+            >NALSA launches legal aid drive for prison inmates; targets 50 lakh
+            beneficiaries by 2025</span
+          >
+          <!-- Duplicate for seamless loop -->
+          <span class="marquee-item"
+            >Supreme Court upholds Right to Privacy in landmark digital data
+            case involving Meta India</span
+          >
+          <span class="marquee-item"
+            >Delhi High Court directs CBI to submit final report in judicial
+            appointments corruption probe</span
+          >
+          <span class="marquee-item"
+            >Bombay HC stays ordinance on OBC quota expansion pending
+            constitutional review</span
+          >
+          <span class="marquee-item"
+            >SC bench constituted to examine validity of electoral bond scheme;
+            hearing Dec 12</span
+          >
+          <span class="marquee-item"
+            >Madras HC strikes down Tamil Nadu police circular restricting bail
+            applications</span
+          >
+          <span class="marquee-item"
+            >AG for India defends demonetisation verdict before five-judge
+            constitutional bench</span
+          >
+          <span class="marquee-item"
+            >Allahabad HC issues contempt notice to UP officials over delayed
+            POCSO trials</span
+          >
+          <span class="marquee-item"
+            >NALSA launches legal aid drive for prison inmates; targets 50 lakh
+            beneficiaries by 2025</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Utility Bar ═════════════════════════════════════════ -->
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-left">
+          <span class="date-tag">Sunday, April 19, 2026</span>
+          <span class="edition-pill">New Delhi Edition</span>
+          <a href="#">ePaper</a>
+          <a href="#">Print Edition</a>
+        </div>
+        <div class="util-right">
+          <a href="#">Sign In</a>
+          <a href="#">Register</a>
+          <a href="#">Advertise</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Header ══════════════════════════════════════════════ -->
+    <header class="site-header" id="siteHeader">
+      <div class="container">
+        <div class="header-inner">
+          <a href="#" class="logo-wrap">
+            <!-- <div class="logo-name">Law<span>Brief</span></div> -->
+            <div class="logo-name">Test<span>Law</span></div>
+            <div class="logo-tagline">
+              India's Authoritative Legal News Source
+            </div>
+            <div class="logo-rule"><span></span><span></span></div>
+          </a>
+
+          <nav class="main-nav">
+            <a href="#" class="active">Home</a>
+            <a href="#">Latest News</a>
+            <a href="#">Judgments</a>
+            <a href="#">Articles</a>
+            <a href="#">Interviews</a>
+            <a href="#">Columns</a>
+            <a href="#">Legislation</a>
+            <a href="#">Contact</a>
+          </nav>
+
+          <div class="header-actions">
+            <button
+              class="icon-btn"
+              id="searchToggle"
+              title="Search"
+              aria-label="Search"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="M21 21l-4.35-4.35" />
+              </svg>
+            </button>
+            <button class="icon-btn" title="Bookmark" aria-label="Bookmarks">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+              </svg>
+            </button>
+            <a href="#" class="subscribe-btn">Subscribe</a>
+            <div
+              class="hamburger"
+              id="hamburger"
+              role="button"
+              aria-label="Menu"
+            >
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="#">Home</a>
+        <a href="#">Latest News</a>
+        <a href="#">Judgments</a>
+        <a href="#">Articles</a>
+        <a href="#">Interviews</a>
+        <a href="#">Columns</a>
+        <a href="#">Legislation</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <!-- ═══ Secondary Nav ════════════════════════════════════════ -->
+    <div class="nav-secondary">
+      <div class="container">
+        <a href="#" class="active">Supreme Court</a>
+        <a href="#">High Courts</a>
+        <a href="#">District Courts</a>
+        <a href="#">Tribunals</a>
+        <a href="#">Constitutional Law</a>
+        <a href="#">Criminal Law</a>
+        <a href="#">Corporate Law</a>
+        <a href="#">Family Law</a>
+        <a href="#">Cyber Law</a>
+        <a href="#">International Law</a>
+        <a href="#">Law School</a>
+        <a href="#">Bar & Bench</a>
+      </div>
+    </div>
+
+    <!-- ═══ Main Content ═════════════════════════════════════════ -->
+    <main>
+      <div class="container">
+        <!-- Leaderboard Ad -->
+        <div class="leaderboard-ad">
+          <span>Advertisement — 728 × 90</span>
+        </div>
+
+        <div class="main-content">
+          <!-- ─── Content Column ─── -->
+          <div class="content-col">
+            <!-- ── Hero / Top Stories ── -->
+            <h2 class="section-title">
+              <span class="accent">Top</span> Stories
+            </h2>
+            <div class="hero-grid">
+              <!-- Main Feature -->
+              <div class="hero-main">
+                <img
+                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&q=80"
+                  alt="Supreme Court of India"
+                  loading="eager"
+                />
+                <div class="hero-overlay">
+                  <div class="hero-meta">
+                    <span class="tag">Supreme Court</span>
+                    <span class="hero-time">2 hours ago</span>
+                  </div>
+                  <h1 class="hero-headline">
+                    Five-Judge Constitution Bench Reserves Order on Centre's
+                    Power to Alter State Boundaries Without Consent
+                  </h1>
+                  <p class="hero-summary">
+                    In a significant constitutional moment, a five-judge bench
+                    presided over by CJI Chandrachud heard exhaustive arguments
+                    from Solicitor General and Advocates General of six states
+                    before reserving judgment on the landmark matter.
+                  </p>
+                  <a href="#" class="hero-read-more"
+                    >Read Full Story
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" /></svg
+                  ></a>
+                </div>
+              </div>
+              <!-- Side Stories -->
+              <div class="hero-side">
+                <div class="side-story">
+                  <div class="side-thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=200&q=75"
+                      alt="Legal Documents"
+                    />
+                  </div>
+                  <div class="side-body">
+                    <span class="tag">High Court</span>
+                    <h3 class="side-headline">
+                      Delhi HC Issues Guidelines for Virtual Hearings in All
+                      District Courts; Mandates e-Filing by Oct 2026
+                    </h3>
+                    <div class="side-time">4 hours ago</div>
+                  </div>
+                </div>
+                <div class="side-story">
+                  <div class="side-thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=75"
+                      alt="Judge"
+                    />
+                  </div>
+                  <div class="side-body">
+                    <span class="tag navy">Appointment</span>
+                    <h3 class="side-headline">
+                      SC Collegium Recommends 17 Additional Judges for Elevation
+                      to High Courts; List Published
+                    </h3>
+                    <div class="side-time">6 hours ago</div>
+                  </div>
+                </div>
+                <div class="side-story">
+                  <div class="side-thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1471922694854-ff1b63b20054?w=200&q=75"
+                      alt="Legislation"
+                    />
+                  </div>
+                  <div class="side-body">
+                    <span class="tag gold">Legislation</span>
+                    <h3 class="side-headline">
+                      Lok Sabha Passes Digital Personal Data Protection
+                      (Amendment) Bill With Bipartisan Support
+                    </h3>
+                    <div class="side-time">8 hours ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ribbon -->
+            <div class="ribbon-bar">Today's Coverage</div>
+
+            <!-- ── Latest News Grid ── -->
+            <h2 class="section-title">
+              <span class="accent">Latest</span> News
+            </h2>
+            <div class="news-grid">
+              <article class="news-card">
+                <div class="news-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=75"
+                    alt="Supreme Court"
+                  />
+                  <span class="tag">Supreme Court</span>
+                </div>
+                <div class="news-card-body">
+                  <h3 class="news-headline">
+                    SC Stays Calcutta HC Order Granting Anticipatory Bail to
+                    Former Bengal Minister in Coal Scam
+                  </h3>
+                  <p class="news-desc">
+                    The Supreme Court bench expressed strong concern over the
+                    manner in which the HC granted relief, noting that the order
+                    was "cryptic and non-reasoned."
+                  </p>
+                  <div class="news-footer">
+                    <div class="news-date">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                      Today, 10:32 AM
+                    </div>
+                    <span class="news-author">By Staff Reporter</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=400&q=75"
+                    alt="High Court"
+                  />
+                  <span class="tag navy">Bombay HC</span>
+                </div>
+                <div class="news-card-body">
+                  <h3 class="news-headline">
+                    Bombay High Court: Employer Cannot Terminate Employee on
+                    Basis of Medical Leave Alone — Disability Rights
+                  </h3>
+                  <p class="news-desc">
+                    Invoking Article 21 and Persons with Disabilities Act, the
+                    division bench held that termination triggered solely by
+                    prolonged medical leave amounts to discrimination.
+                  </p>
+                  <div class="news-footer">
+                    <div class="news-date">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                      Today, 9:15 AM
+                    </div>
+                    <span class="news-author">By Priya Menon</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=75"
+                    alt="Corporate Law"
+                  />
+                  <span class="tag gold">Corporate</span>
+                </div>
+                <div class="news-card-body">
+                  <h3 class="news-headline">
+                    NCLT Approves Insolvency Resolution Plan for Reliance
+                    Capital; CoC Votes 94% in Favour of Hinduja Bid
+                  </h3>
+                  <p class="news-desc">
+                    The National Company Law Tribunal's Mumbai bench approved
+                    the ₹9,650 crore resolution plan submitted by Hinduja Group
+                    in a marathon hearing spanning two days.
+                  </p>
+                  <div class="news-footer">
+                    <div class="news-date">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                      Yesterday, 6:45 PM
+                    </div>
+                    <span class="news-author">By Kiran Nair</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=400&q=75"
+                    alt="Criminal Law"
+                  />
+                  <span class="tag">Criminal</span>
+                </div>
+                <div class="news-card-body">
+                  <h3 class="news-headline">
+                    Madras HC: Confession Before Police Officer Inadmissible
+                    Even If Spontaneous; Section 25 Evidence Act Absolute Bar
+                  </h3>
+                  <p class="news-desc">
+                    Citing a long line of apex court precedents, Justice Murali
+                    Shankar reiterated that any confession recorded by or before
+                    a police officer carries no evidentiary value whatsoever.
+                  </p>
+                  <div class="news-footer">
+                    <div class="news-date">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                      Yesterday, 3:20 PM
+                    </div>
+                    <span class="news-author">By Arjun Krishnan</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&q=75"
+                    alt="Family Law"
+                  />
+                  <span class="tag green">Family Law</span>
+                </div>
+                <div class="news-card-body">
+                  <h3 class="news-headline">
+                    Kerala HC: Mutual Consent Divorce Cannot Be Denied on Ground
+                    of Short Marriage Duration; Liberty Is Paramount
+                  </h3>
+                  <p class="news-desc">
+                    The Kerala High Court overturned a family court order that
+                    had refused to grant divorce citing a "short matrimonial
+                    duration," holding that personal autonomy must guide such
+                    decisions.
+                  </p>
+                  <div class="news-footer">
+                    <div class="news-date">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                      Apr 18, 2026
+                    </div>
+                    <span class="news-author">By Staff Reporter</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=75"
+                    alt="Cyber Law"
+                  />
+                  <span class="tag navy">Cyber Law</span>
+                </div>
+                <div class="news-card-body">
+                  <h3 class="news-headline">
+                    Delhi HC Issues Summons to Five Social Media Platforms in
+                    Deepfake Election Misinformation Batch Petition
+                  </h3>
+                  <p class="news-desc">
+                    A division bench headed by Chief Justice Satish Chandra
+                    Sharma sought responses from Meta, X Corp, YouTube, Telegram
+                    and ShareChat on the regulatory failure to curb AI-generated
+                    political deepfakes.
+                  </p>
+                  <div class="news-footer">
+                    <div class="news-date">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                      Apr 18, 2026
+                    </div>
+                    <span class="news-author">By Tech Desk</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- /news-grid -->
+
+            <!-- ── Judgment Highlights ── -->
+            <div class="judgments-section">
+              <h2 class="section-title">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Judgment <span class="accent">Highlights</span>
+              </h2>
+              <div class="judgment-list">
+                <div class="judgment-item">
+                  <div class="judgment-num">01</div>
+                  <div class="judgment-content">
+                    <div class="judgment-court">Supreme Court of India</div>
+                    <div class="judgment-title">
+                      Vikram Enterprises vs Union of India & Ors. (Civil Appeal
+                      No. 4512/2026)
+                    </div>
+                    <div class="judgment-summary">
+                      Held that mandatory pre-deposit under GST Act before
+                      filing appeal does not violate Article 14 or Article
+                      19(1)(g). Doctrine of legitimate expectation does not
+                      apply to tax statutes that are prospectively amended by
+                      Parliament.
+                    </div>
+                    <div class="judgment-date">
+                      Decided: April 17, 2026 | Bench: Justices Oka & Agarwal
+                    </div>
+                  </div>
+                </div>
+
+                <div class="judgment-item">
+                  <div class="judgment-num">02</div>
+                  <div class="judgment-content">
+                    <div class="judgment-court">Delhi High Court</div>
+                    <div class="judgment-title">
+                      Priya Sharma vs State of Delhi & Anr. (W.P.(C) 8821/2025)
+                    </div>
+                    <div class="judgment-summary">
+                      Directed Delhi Police to pay ₹5 lakh compensation to
+                      victim of custodial harassment. Court invoked
+                      constitutional tort doctrine holding the State vicariously
+                      liable for fundamental rights violations by its officers.
+                    </div>
+                    <div class="judgment-date">
+                      Decided: April 16, 2026 | Justice Rekha Palli
+                    </div>
+                  </div>
+                </div>
+
+                <div class="judgment-item">
+                  <div class="judgment-num">03</div>
+                  <div class="judgment-content">
+                    <div class="judgment-court">
+                      National Green Tribunal — Principal Bench
+                    </div>
+                    <div class="judgment-title">
+                      Green Advocates Forum vs MoEFCC (O.A. No. 217/2026)
+                    </div>
+                    <div class="judgment-summary">
+                      Imposed ₹50 crore environmental compensation on a private
+                      conglomerate for illegally diverting forest land in
+                      Aravalli without prior approval under the Forest
+                      Conservation Act, 1980. Restoration plan ordered within 90
+                      days.
+                    </div>
+                    <div class="judgment-date">
+                      Decided: April 15, 2026 | Chairperson Justice AK Goel
+                    </div>
+                  </div>
+                </div>
+
+                <div class="judgment-item">
+                  <div class="judgment-num">04</div>
+                  <div class="judgment-content">
+                    <div class="judgment-court">Bombay High Court</div>
+                    <div class="judgment-title">
+                      Hindustan Unilever Ltd. vs Competition Commission of India
+                      (Writ Petition 1204/2025)
+                    </div>
+                    <div class="judgment-summary">
+                      Upheld CCI's jurisdiction to investigate anti-competitive
+                      pricing in FMCG distribution chains even when agreements
+                      are vertical in nature. Dismissed challenge to dawn raid,
+                      holding CCI's investigative powers are
+                      quasi-administrative, not quasi-judicial at investigation
+                      stage.
+                    </div>
+                    <div class="judgment-date">
+                      Decided: April 14, 2026 | Division Bench
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /judgments -->
+
+            <!-- ── Featured Articles / Opinions ── -->
+            <h2 class="section-title">
+              <span class="accent">Opinions</span> &amp; Analysis
+            </h2>
+            <div class="opinion-grid">
+              <div class="opinion-card">
+                <div class="opinion-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=75"
+                    alt="Author"
+                  />
+                </div>
+                <div class="opinion-stripe"></div>
+                <div class="opinion-card-body">
+                  <div class="opinion-label">Opinion</div>
+                  <h3 class="opinion-headline">
+                    Why India's Arbitration Regime Needs a Course Correction
+                    Before the Next Decade
+                  </h3>
+                  <p class="opinion-preview">
+                    India's ambitious arbitration reforms have created a
+                    framework that looks good on paper but stumbles in practice.
+                    The backlog at the Delhi International Arbitration Centre,
+                    the persistent enforcement bottlenecks and the brain drain
+                    of top arbitrators to Singapore deserve urgent attention
+                    from the legislature and Bar Council alike.
+                  </p>
+                  <div class="author-row">
+                    <div class="author-avatar">
+                      <img
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=75"
+                        alt="Author Avatar"
+                      />
+                    </div>
+                    <div class="author-info">
+                      <div class="author-name">
+                        Senior Advocate Ramesh Krishnamurthy
+                      </div>
+                      <div class="author-role">
+                        Chambers, Supreme Court of India
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="opinion-card">
+                <div class="opinion-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=500&q=75"
+                    alt="Author"
+                  />
+                </div>
+                <div class="opinion-stripe"></div>
+                <div class="opinion-card-body">
+                  <div class="opinion-label">Analysis</div>
+                  <h3 class="opinion-headline">
+                    The DPDP Act's 'Consent Framework' — A Comparative Study
+                    with GDPR's Legitimate Interest Doctrine
+                  </h3>
+                  <p class="opinion-preview">
+                    The Digital Personal Data Protection Act 2023 leans heavily
+                    on consent as the primary ground for processing, yet fails
+                    to incorporate GDPR's robust "legitimate interests"
+                    balancing test, creating a regulatory vacuum that could
+                    stifle innovation while providing illusory protection to
+                    data principals.
+                  </p>
+                  <div class="author-row">
+                    <div class="author-avatar">
+                      <img
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=75"
+                        alt="Author Avatar"
+                      />
+                    </div>
+                    <div class="author-info">
+                      <div class="author-name">Dr. Neha Srivastava</div>
+                      <div class="author-role">Professor of Law, NLU Delhi</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="opinion-card">
+                <div class="opinion-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=75"
+                    alt="Author"
+                  />
+                </div>
+                <div class="opinion-stripe"></div>
+                <div class="opinion-card-body">
+                  <div class="opinion-label">Column</div>
+                  <h3 class="opinion-headline">
+                    Judicial Accountability Without Judicial Independence:
+                    Navigating the Thin Constitutional Line
+                  </h3>
+                  <p class="opinion-preview">
+                    As calls for increased scrutiny of the higher judiciary grow
+                    louder, we must resist the temptation to import
+                    accountability mechanisms that are incompatible with a
+                    constitutional culture built on separation of powers. The
+                    solution lies not in parliamentary oversight but in a
+                    strengthened in-house procedure.
+                  </p>
+                  <div class="author-row">
+                    <div class="author-avatar">
+                      <img
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=75"
+                        alt="Author Avatar"
+                      />
+                    </div>
+                    <div class="author-info">
+                      <div class="author-name">Adv. Siddharth Balachandran</div>
+                      <div class="author-role">
+                        Constitutional Law Practitioner, Madras Bar
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="opinion-card">
+                <div class="opinion-card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=500&q=75"
+                    alt="Author"
+                  />
+                </div>
+                <div class="opinion-stripe"></div>
+                <div class="opinion-card-body">
+                  <div class="opinion-label">Interview</div>
+                  <h3 class="opinion-headline">
+                    "The Bar Must Lead on AI Ethics Before the Bench Is Forced
+                    to Rule": Exclusive Interview with Justice (Retd.) P.K.
+                    Vishwanathan
+                  </h3>
+                  <p class="opinion-preview">
+                    In an exclusive conversation with TestLaw, former Supreme
+                    Court judge P.K. Vishwanathan urges the Bar Council to
+                    proactively frame AI usage guidelines, arguing that reactive
+                    judicial intervention will create greater uncertainty than
+                    prospective professional regulation.
+                  </p>
+                  <div class="author-row">
+                    <div class="author-avatar">
+                      <img
+                        src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&q=75"
+                        alt="Author Avatar"
+                      />
+                    </div>
+                    <div class="author-info">
+                      <div class="author-name">
+                        Justice (Retd.) P.K. Vishwanathan
+                      </div>
+                      <div class="author-role">
+                        Former Judge, Supreme Court of India
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /opinion-grid -->
+
+            <!-- ── Visual Stories ── -->
+            <h2 class="section-title">
+              <span class="accent">In</span> Pictures
+            </h2>
+            <div class="visual-grid">
+              <div class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=300&q=70"
+                  alt="SC"
+                />
+                <div class="visual-card-overlay">
+                  <div class="visual-card-cat">Supreme Court</div>
+                  <div class="visual-card-title">
+                    Inside the Constitution Bench Hearing Room
+                  </div>
+                </div>
+              </div>
+              <div class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&q=70"
+                  alt="Contract"
+                />
+                <div class="visual-card-overlay">
+                  <div class="visual-card-cat">Corporate Law</div>
+                  <div class="visual-card-title">
+                    The New Faces of M&amp;A Law in India
+                  </div>
+                </div>
+              </div>
+              <div class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=300&q=70"
+                  alt="Lawyers"
+                />
+                <div class="visual-card-overlay">
+                  <div class="visual-card-cat">Bar &amp; Bench</div>
+                  <div class="visual-card-title">
+                    NLU Graduates Redefining Legal Aid
+                  </div>
+                </div>
+              </div>
+              <div class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&q=70"
+                  alt="Legal Tech"
+                />
+                <div class="visual-card-overlay">
+                  <div class="visual-card-cat">Legal Tech</div>
+                  <div class="visual-card-title">
+                    AI Tools Transforming Court Research
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /visual-grid -->
+          </div>
+          <!-- /content-col -->
+
+          <!-- ─── Sidebar ─── -->
+          <aside class="sidebar-col">
+            <!-- Trending -->
+            <div class="sidebar-widget">
+              <div class="widget-title">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+                Trending Now
+              </div>
+              <div class="widget-body">
+                <div class="trending-item">
+                  <div class="trending-num">1</div>
+                  <div>
+                    <div class="trending-headline">
+                      SC Refuses to Stay Implementation of New IPC Provisions;
+                      Hearing Listed Jan 2027
+                    </div>
+                    <div class="trending-time">35 minutes ago</div>
+                  </div>
+                </div>
+                <div class="trending-item">
+                  <div class="trending-num">2</div>
+                  <div>
+                    <div class="trending-headline">
+                      Bombay HC Grants Bail to Journalist Arrested Under UAPA
+                      After 18 Months in Custody
+                    </div>
+                    <div class="trending-time">2 hours ago</div>
+                  </div>
+                </div>
+                <div class="trending-item">
+                  <div class="trending-num">3</div>
+                  <div>
+                    <div class="trending-headline">
+                      Delhi HC Mandates Video Recording of All POCSO Trial
+                      Proceedings; Model Order Issued
+                    </div>
+                    <div class="trending-time">3 hours ago</div>
+                  </div>
+                </div>
+                <div class="trending-item">
+                  <div class="trending-num">4</div>
+                  <div>
+                    <div class="trending-headline">
+                      CJI Announces Six New Fast-Track Commercial Courts in
+                      Tier-II Cities by December
+                    </div>
+                    <div class="trending-time">5 hours ago</div>
+                  </div>
+                </div>
+                <div class="trending-item">
+                  <div class="trending-num">5</div>
+                  <div>
+                    <div class="trending-headline">
+                      SC Bar Association Condemns Physical Attack on Junior
+                      Lawyer Inside Court Premises
+                    </div>
+                    <div class="trending-time">7 hours ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ad Placeholder -->
+            <div class="ad-box">
+              <div class="ad-box-icon">📢</div>
+              <div class="ad-box-label">Advertisement</div>
+              <div class="ad-box-size">300 × 250 — Medium Rectangle</div>
+            </div>
+
+            <!-- Most Read -->
+            <div class="sidebar-widget">
+              <div class="widget-title">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Most Read
+              </div>
+              <div class="widget-body">
+                <div class="most-read-item">
+                  <div class="mr-rank">1</div>
+                  <div class="mr-headline">
+                    What the New BNS Provisions Mean for Accused in Ongoing
+                    Trials: A Practical Explainer
+                  </div>
+                </div>
+                <div class="most-read-item">
+                  <div class="mr-rank">2</div>
+                  <div class="mr-headline">
+                    10 Key Amendments in the New Bharatiya Nagarik Suraksha
+                    Sanhita — Tabular Analysis
+                  </div>
+                </div>
+                <div class="most-read-item">
+                  <div class="mr-rank">3</div>
+                  <div class="mr-headline">
+                    SC Full Bench to Examine Whether WhatsApp Chats Are
+                    Admissible as Primary Evidence
+                  </div>
+                </div>
+                <div class="most-read-item">
+                  <div class="mr-rank">4</div>
+                  <div class="mr-headline">
+                    How to Challenge an Arbitral Award Under Section 34: A
+                    Step-by-Step Guide for Practitioners
+                  </div>
+                </div>
+                <div class="most-read-item">
+                  <div class="mr-rank">5</div>
+                  <div class="mr-headline">
+                    Gujarat HC: NRI Property Dispute Must Be Adjudicated in
+                    India If Property Is Situated Here
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-widget newsletter-widget">
+              <div class="widget-title">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                Daily Legal Digest
+              </div>
+              <div class="newsletter-body">
+                <p class="newsletter-text">
+                  Get curated judgments, legislative updates and legal analysis
+                  delivered to your inbox every morning at 8 AM.
+                </p>
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Your email address"
+                />
+                <input
+                  type="text"
+                  class="newsletter-input"
+                  placeholder="Your designation (optional)"
+                />
+                <button
+                  class="newsletter-btn"
+                  onclick="
+                    this.textContent = '✓ Subscribed!';
+                    this.style.background = '#1B6B3A';
+                  "
+                >
+                  Subscribe Free
+                </button>
+              </div>
+            </div>
+
+            <!-- Second Ad -->
+            <div class="ad-box" style="height: 180px">
+              <div class="ad-box-icon">🏛️</div>
+              <div class="ad-box-label">Law Firm Advertisement</div>
+              <div class="ad-box-size">300 × 150</div>
+            </div>
+          </aside>
+          <!-- /sidebar-col -->
+        </div>
+        <!-- /main-content -->
+      </div>
+      <!-- /container -->
+    </main>
+
+    <!-- ═══ Pre-Footer Strip ══════════════════════════════════════ -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="pf-text">
+          <strong>TestLaw Premium</strong> — Unlock full judgment database,
+          AI-powered case research, expert webinars &amp; exclusive newsletters.
+        </div>
+        <div
+          style="display: flex; gap: 12px; align-items: center; flex-shrink: 0"
+        >
+          <a href="#" class="btn btn-primary">Start Free Trial</a>
+          <a
+            href="#"
+            class="btn btn-outline"
+            style="border-color: #aab8cc; color: #aab8cc"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Footer ═══════════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- About -->
+          <div class="footer-about">
+            <div class="logo-name">Law<span>Brief</span></div>
+            <p>
+              India's most trusted source for legal news, court judgments,
+              legislative updates and expert opinions. Serving the legal
+              community since 2012 — lawyers, judges, law students and
+              policymakers.
+            </p>
+            <div class="footer-social">
+              <div class="social-icon" title="Twitter/X">𝕏</div>
+              <div class="social-icon" title="LinkedIn">in</div>
+              <div class="social-icon" title="Facebook">f</div>
+              <div class="social-icon" title="YouTube">▶</div>
+              <div class="social-icon" title="Telegram">✈</div>
+              <div class="social-icon" title="WhatsApp">💬</div>
+            </div>
+          </div>
+          <!-- Categories -->
+          <div class="footer-col">
+            <h4>Coverage Areas</h4>
+            <div class="footer-links">
+              <a href="#">Supreme Court</a>
+              <a href="#">High Courts</a>
+              <a href="#">Criminal Law</a>
+              <a href="#">Constitutional Law</a>
+              <a href="#">Corporate &amp; IBC</a>
+              <a href="#">Cyber &amp; Data Law</a>
+              <a href="#">Family &amp; Property</a>
+              <a href="#">Environmental Law</a>
+              <a href="#">Tribunals</a>
+              <a href="#">International Law</a>
+            </div>
+          </div>
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="#">About TestLaw</a>
+              <a href="#">Editorial Policy</a>
+              <a href="#">Write for Us</a>
+              <a href="#">Advertise With Us</a>
+              <a href="#">Judgments Database</a>
+              <a href="#">Legal Calendar</a>
+              <a href="#">Law School Rankings</a>
+              <a href="#">Job Board</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+            </div>
+          </div>
+          <!-- Contact -->
+          <div class="footer-col footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              TestLaw Media Pvt. Ltd.,<br />302, Lawyers' Chambers,<br />Supreme
+              Court Annexe,<br />New Delhi – 110 001
+            </p>
+            <p>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.95 3.59 2 2 0 0 1 3.93 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              +91 11 2338 5500
+            </p>
+            <p>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              newsdesk@TestLaw.in
+            </p>
+            <p>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              advertise@TestLaw.in
+            </p>
+            <div style="margin-top: 16px">
+              <a href="#" class="btn btn-primary" style="font-size: 11px"
+                >Subscribe to Newsletter</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            © 2026 TestLaw Media Pvt. Ltd. All rights reserved. | ISSN
+            2582-XXXX
+          </div>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══ Search Modal ═══════════════════════════════════════ -->
+    <div class="search-modal" id="searchModal">
+      <span class="search-close" id="searchClose">✕</span>
+      <div class="search-modal-inner">
+        <div class="search-input-wrap">
+          <input
+            type="text"
+            placeholder="Search judgments, articles, case names…"
+            id="searchInput"
+            autocomplete="off"
+          />
+          <button class="search-submit" aria-label="Search">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+          </button>
+        </div>
+        <p class="search-hint">
+          Popular: POCSO, IBC, Electoral Bond, Article 370, NDPS Act, Bail
+          Conditions, SC Contempt
+        </p>
+      </div>
+    </div>
+
+    <!-- ═══ Scroll to Top ═════════════════════════════════════ -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+
+    <script>
+      /* ── Sticky header shadow ── */
+      const header = document.getElementById("siteHeader");
+      window.addEventListener(
+        "scroll",
+        () => {
+          header.classList.toggle("scrolled", window.scrollY > 60);
+          document
+            .getElementById("scrollTop")
+            .classList.toggle("visible", window.scrollY > 400);
+        },
+        { passive: true },
+      );
+
+      /* ── Scroll to top ── */
+      document.getElementById("scrollTop").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      /* ── Search modal ── */
+      const modal = document.getElementById("searchModal");
+      const searchInput = document.getElementById("searchInput");
+      document.getElementById("searchToggle").addEventListener("click", () => {
+        modal.classList.add("open");
+        setTimeout(() => searchInput.focus(), 100);
+      });
+      document
+        .getElementById("searchClose")
+        .addEventListener("click", () => modal.classList.remove("open"));
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.classList.remove("open");
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") modal.classList.remove("open");
+      });
+
+      /* ── Mobile nav ── */
+      const burger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobileNav");
+      burger.addEventListener("click", () => {
+        const open = mobileNav.classList.toggle("open");
+        burger.setAttribute("aria-expanded", open);
+      });
+
+      /* ── Smooth hover tilt on visual cards ── */
+      document.querySelectorAll(".visual-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width - 0.5) * 8;
+          const y = ((e.clientY - r.top) / r.height - 0.5) * -8;
+          card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${y}deg) scale(1.03)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+        });
+      });
+
+      /* ── Live timestamp formatting ── */
+      const now = new Date();
+      document.querySelectorAll(".news-date").forEach((el, i) => {
+        if (i < 2)
+          el.querySelector("svg") &&
+            (el.lastChild.textContent =
+              " Today, " +
+              now.toLocaleTimeString("en-IN", {
+                hour: "2-digit",
+                minute: "2-digit",
+              }));
+      });
+    </script>
+  </body>
+</html>

@@ -6,11 +6,47 @@ use App\Http\Controllers\LatestNewsController;
 use App\Http\Controllers\JudgmentController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Admin\JudgmentController as AdminJudgmentController;
+use App\Http\Controllers\Admin\InterviewController as AdminInterviewController;
+use App\Http\Controllers\Admin\LatestNewsController as AdminLatestNewsController;
+use App\Http\Controllers\Admin\OpinionController as AdminOpinionController;
+use App\Http\Controllers\Admin\AuthorController as AdminAuthorController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\TagController as AdminTagController;
+use App\Http\Controllers\Admin\AdvertisementController as AdminAdvertisementController;
 
+// ─── Frontend Routes ──────────────────────────────────────────────────────────
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/latest-news', [LatestNewsController::class, 'index'])->name('latest-news');
+Route::get('/latest-news/{slug}', [LatestNewsController::class, 'show'])->name('latest-news.show');
 Route::get('/judgments', [JudgmentController::class, 'index'])->name('judgments');
-Route::get('/judgments/{id}', [JudgmentController::class, 'show'])->name('judgments.show');
+Route::get('/judgments/{slug}', [JudgmentController::class, 'show'])->name('judgments.show');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
-Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews');
+Route::get('/interviews/{slug}', [InterviewController::class, 'show'])->name('interviews.show');
+
+// ─── Admin Auth ───────────────────────────────────────────────────────────────
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+// ─── Admin Panel (auth protected) ─────────────────────────────────────────────
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('articles',      AdminArticleController::class);
+    Route::resource('judgments',     AdminJudgmentController::class);
+    Route::resource('interviews',    AdminInterviewController::class);
+    Route::resource('latest-news',   AdminLatestNewsController::class);
+    Route::resource('opinions',      AdminOpinionController::class);
+    Route::resource('authors',       AdminAuthorController::class);
+    Route::resource('categories',    AdminCategoryController::class);
+    Route::resource('tags',          AdminTagController::class);
+    Route::resource('advertisements', AdminAdvertisementController::class);
+});

@@ -1,341 +1,389 @@
-# Project Rules
+# CMS & Admin Architecture Rules
 
-## Stack
+## Admin Panel Goal
 
-* Laravel 12
-* PHP 8.2
-* Livewire 3
-* Bootstrap 5
-* Blade Components
+Admin panel should use:
 
----
+MVC architecture
+Laravel controllers
+Blade templates
+Bootstrap 5
 
-# Main Goal
+Avoid:
 
-Convert provided HTML templates into a structured Laravel application using:
+Livewire admin dashboards
+heavy reactive components
+unnecessary AJAX complexity
 
-* Controllers
-* Blade pages
-* Small Livewire components
-
-Requirements:
-
-* Reusable components
-* Clean architecture
-* Minimal duplication
-* SEO-friendly
-* Mobile responsive
-* Production-ready structure
-
----
-
-# Token Optimization Rules
-
-* Return ONLY necessary code
-* No long explanations
-* No repeating unchanged code
-* Do not rewrite entire files unless requested
-* Show only modified sections when possible
-* Keep responses concise
-* Avoid comments unless important
-* Prefer compact code
-
----
-
-# Project File Paths
-
-## Source HTML
-
-Path:
-D:\xampp824\htdocs\law\resources\views\htmls\index.html
-
-Additional HTML files may exist inside:
-D:\xampp824\htdocs\law\resources\views\htmls\
-
-Use these HTML files as source templates.
-
----
-
-# CSS Source
-
-Path:
-D:\xampp824\htdocs\law\resources\css\style.css
-
-Reuse existing CSS when possible.
-
-Do not rewrite CSS unless necessary.
-
-Use Bootstrap classes with existing CSS.
-
-Do NOT convert everything to Tailwind.
-
----
-
-# Folder Structure
-
-Use this structure strictly:
-
-app/
-├── Http/
-│   └── Controllers/
-│
-├── Livewire/
-│   ├── Forms/
-│   ├── Sections/
-│   └── Components/
-
-resources/views/
-├── pages/
-├── layouts/
-├── partials/
-├── components/
-└── livewire/
-
----
-
-# Layout Architecture
-
-Create:
-
-* layouts/app.blade.php
-* partials/navbar.blade.php
-* partials/footer.blade.php
-
-Main layout must include:
-
-```blade
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-```
-
-Include Bootstrap properly.
-
----
-
-# Routing Rules
-
-Use:
-routes/web.php
-
-Prefer:
-
-* Route
-* Controller
-* Blade page
-* Small Livewire components
+Use standard Laravel CRUD structure.
 
 Example:
 
-```php
-Route::get('/', [HomeController::class, 'index'])->name('home');
-```
+Route::resource('articles', ArticleController::class);
 
-Avoid full-page Livewire unless absolutely necessary.
+Admin will manage all website content dynamically through backend dashboard.
+
+Everything must be database-driven.
+
+No hardcoded frontend content.
 
 ---
 
-# Controller Rules
+# Backend Requirements
 
-Store controllers in:
+Create complete CRUD for:
+
+* Homepage Sections
+* Articles
+* Latest News
+* Interviews
+* Judgments
+* Opinions
+* Categories
+* Tags
+* Sidebar Content
+* Advertisements
+* Authors
+* Media Uploads
+
+Admin can:
+
+* Create
+* Edit
+* Delete
+* Publish
+* Unpublish
+* Feature content
+
+---
+
+# Database Rules
+
+Create separate tables for each content type.
+
+Examples:
+
+* articles
+* interviews
+* judgments
+* latest_news
+* homepage_sections
+* advertisements
+* authors
+* categories
+* tags
+
+Use proper relationships.
+
+Examples:
+
+* article belongsTo category
+* article belongsTo author
+* article hasMany tags
+
+---
+
+# Migration Rules
+
+Generate:
+
+* migrations
+* models
+* controllers
+* requests
+* relationships
+
+Use:
+
+* foreign keys
+* indexes
+* soft deletes where useful
+
+Example columns:
+
+* title
+* slug
+* excerpt
+* content
+* image
+* status
+* published_at
+* meta_title
+* meta_description
+
+---
+
+# Admin Controller Rules
+
+Store inside:
+
+app/Http/Controllers/Admin/
+
+Examples:
+
+* ArticleController
+* JudgmentController
+* InterviewController
+* HomepageController
+
+Controllers must handle:
+
+* CRUD
+* validation
+* file uploads
+* publish status
+
+Keep methods clean and small.
+
+---
+
+# Frontend Controller Rules
+
+Frontend pages must use separate controllers.
+
+Examples:
 
 app/Http/Controllers/
 
-Examples:
-
 * HomeController
-* AboutController
-* ContactController
+* NewsController
+* JudgmentController
+* InterviewController
 
-Controllers should:
+Frontend controllers should:
 
-* return views
-* prepare page data
-* keep logic clean
-
-Do not place heavy logic inside Blade.
-
----
-
-# Blade Rules
-
-Pages go inside:
-
-resources/views/pages/
-
-Examples:
-
-* home.blade.php
-* about.blade.php
-* contact.blade.php
-
-Blade pages should:
-
-* extend layouts.app
-* include partials
-* include small Livewire components
-
-Example:
-
-```blade
-@extends('layouts.app')
-
-@section('content')
-    @include('partials.hero')
-
-    <livewire:forms.contact-form />
-@endsection
-```
+* fetch published data only
+* optimize queries
+* use eager loading
 
 ---
 
-# Livewire Rules
+# Blade Architecture
 
-Use Livewire ONLY for:
+Use:
 
-* forms
-* modals
-* filtering
-* search
-* tabs
-* dynamic UI
-
-Do NOT create giant Livewire page components.
-
-Keep components:
-
-* small
-* reusable
-* isolated
-
-Prefer Blade includes for static content.
+resources/views/
+├── admin/
+├── pages/
+├── partials/
+├── components/
 
 ---
 
 # Homepage Rules
 
-Convert:
-htmls/index.html
+Homepage sections must load dynamically from database.
 
-Into:
+Examples:
 
-* HomeController
-* pages/home.blade.php
-* reusable partials/components
-* small Livewire components only if needed
+```blade
+@include('partials.home.hero')
+@include('partials.home.news-grid')
+@include('partials.home.judgments')
+@include('partials.home.opinions')
+@include('partials.home.visual')
+```
 
----
+Each partial must receive dynamic database data.
 
-# Component Extraction Rules
-
-Extract reusable sections into:
-
-* navbar
-* footer
-* hero-section
-* services-section
-* testimonial-section
-* faq-section
-* cta-section
-
-Avoid duplicate markup.
+Avoid hardcoded text.
 
 ---
 
-# Asset Handling
+# Storage Rules
+
+Use Laravel Storage system.
+
+Store uploads in:
+
+storage/app/public/
+
+Run:
+
+```bash
+php artisan storage:link
+```
 
 Use:
 
-```blade
-{{ asset('assets/images/...') }}
+```php
+Storage::disk('public')
 ```
 
-Store images in:
+Images should display using:
 
-public/assets/images/
+```blade
+asset('storage/'.$item->image)
+```
 
 ---
 
-# CSS Rules
+# Upload Rules
 
-Keep:
-resources/css/style.css
+Admin can upload:
 
-Import into:
-resources/css/app.css
+* featured images
+* article thumbnails
+* PDFs
+* judgment documents
+* author images
+
+Validate:
+
+* file types
+* size
+* mime types
+
+Delete old files on update/delete.
+
+---
+
+# Publish Rules
+
+Frontend must show ONLY:
+
+```php
+status = published
+```
+
+Use statuses:
+
+* draft
+* published
+* archived
+
+---
+
+# Slug Rules
+
+Auto-generate unique slugs.
+
+Use slugs in frontend URLs.
 
 Example:
 
-```css
-@import './style.css';
+```php
+/news/supreme-court-verdict
 ```
-
-Do not generate unnecessary CSS rewrites.
-
-Preserve original Bootstrap classes and layout.
 
 ---
 
-# Bootstrap Rules
+# SEO Rules
 
-Use Bootstrap 5 components and utilities.
+Every major content table should support:
 
-Preserve:
+* meta_title
+* meta_description
+* og_image
 
-* grid system
-* spacing
-* responsiveness
-* utility classes
+---
 
-Do not replace Bootstrap with Tailwind.
+# Admin UI Rules
+
+Use:
+
+* Bootstrap 5
+* reusable forms
+* reusable tables
+* reusable alerts
+
+Avoid duplicated admin markup.
+
+---
+
+# Route Rules
+
+Use grouped routes.
+
+Example:
+
+```php
+Route::prefix('admin')
+    ->middleware(['auth'])
+    ->group(function () {
+
+    });
+```
+
+Use resource controllers where suitable.
 
 ---
 
 # Performance Rules
 
-* Prefer Blade rendering
-* Keep Livewire minimal
-* Avoid unnecessary requests
-* Reuse components
-* Avoid large reactive states
+Use:
+
+* eager loading
+* pagination
+* caching where useful
+
+Avoid:
+
+* N+1 queries
+* unnecessary Livewire requests
 
 ---
 
-# Conversion Workflow
+# Livewire Rules
+Use Livewire ONLY for frontend user panel features.
 
-Follow this order:
+Do NOT use Livewire in admin panel.
 
-1. Analyze HTML structure
-2. Create layout
-3. Extract navbar/footer
-4. Create controller
-5. Create Blade page
-6. Extract reusable sections
-7. Add small Livewire components if needed
-8. Connect assets
-9. Optimize duplication
+Admin panel must use:
+
+Controllers
+Blade views
+Standard Laravel forms
+Resource controllers
+Bootstrap modals/tables/forms
+
+Do not create giant Livewire components.
+
+Keep components isolated.
 
 ---
 
-# Important Constraints
+# Security Rules
 
-* Do not generate unnecessary Livewire components
-* Do not over-engineer
-* Do not create excessive folders
-* Keep architecture scalable but simple
-* Preserve original UI
-* Minimize token usage
-* Output only changed/new files
+Validate all admin inputs.
+
+Use:
+
+* form requests
+* mass assignment protection
+* authorization checks
+
+Sanitize rich text content if needed.
+
+---
+
+# Code Generation Rules
+
+When generating code always include:
+
+* migration
+* model
+* controller
+* routes
+* blade views
+* relationships
+
+Output only required files.
+
+Avoid rewriting entire project.
 
 ---
 
 # Final Goal
 
-Generate maintainable Laravel codebase using:
+Generate scalable legal news portal architecture with:
 
-* MVC architecture
-* Controllers
-* Blade-first rendering
-* Bootstrap 5
-* Small Livewire components only where needed
-* Reusable structure
-* Low complexity
-* Minimal token usage
+* dynamic CMS backend
+* database-driven frontend
+* admin-controlled publishing
+* reusable Blade structure
+* optimized Laravel architecture
+* Bootstrap 5 UI
+* minimal Livewire usage
+* scalable CRUD system
+* clean MVC structure

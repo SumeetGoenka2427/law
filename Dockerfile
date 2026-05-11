@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     curl \
-    libzip-dev \
     zip \
+    libzip-dev \
     nodejs \
     npm
 
@@ -19,22 +19,36 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Copy project
+# Copy project files
 COPY . .
 
-# Install dependencies
+# Create Laravel required directories
+RUN mkdir -p storage/framework/cache
+RUN mkdir -p storage/framework/sessions
+RUN mkdir -p storage/framework/views
+RUN mkdir -p storage/logs
+RUN mkdir -p bootstrap/cache
+
+# Set permissions
+RUN chmod -R 775 storage bootstrap/cache
+
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Install frontend dependencies
-RUN npm install && npm run build
+# Install Node dependencies
+RUN npm install
+
+# Build Vite assets
+RUN npm run build
 
 # Laravel optimize
 RUN php artisan config:clear
+RUN php artisan cache:clear
 RUN php artisan route:clear
 RUN php artisan view:clear
 
-# Expose port
+# Expose Render port
 EXPOSE 10000
 
-# Start server
+# Start Laravel server
 CMD php artisan serve --host=0.0.0.0 --port=10000

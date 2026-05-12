@@ -47,7 +47,10 @@ class AuthorController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($author->image) Storage::disk('public')->delete($author->image);
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($author->image) Storage::disk('public')->delete($author->image);
             $data['image'] = $request->file('image')->store('authors', 'public');
         }

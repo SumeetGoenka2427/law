@@ -1,33 +1,52 @@
+@if($latestNews?->image)
 <div class="card mb-3">
-    <div class="card-header fw-semibold">Publish Settings</div>
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label fw-semibold">Status</label>
-            <select name="status" class="form-select">
-                @foreach(['draft','published','archived'] as $s)
-                <option value="{{ $s }}" {{ old('status', $latestNews?->status ?? 'draft') == $s ? 'selected' : '' }}>{{ ucfirst($s) }}</option>
-                @endforeach
-            </select>
+    <div class="card-header fw-semibold small">Featured Image</div>
+    <div class="card-body text-center p-2">
+        <img src="{{ asset('storage/'.$latestNews->image) }}" class="img-fluid rounded" alt="" />
+    </div>
+</div>
+@endif
+
+@if($latestNews)
+<div class="card mb-3">
+    <div class="card-header fw-semibold small">News Info</div>
+    <div class="card-body" style="font-size:.85rem">
+        <div class="mb-2">
+            <div class="text-muted small">Status</div>
+            @include('admin.partials.status-badge', ['status' => $latestNews->status])
         </div>
-        <div class="mb-3">
-            <label class="form-label">Publish Date</label>
-            <input type="datetime-local" name="published_at" class="form-control" value="{{ old('published_at', $latestNews?->published_at?->format('Y-m-d\TH:i')) }}" />
+        @if($latestNews->is_featured)
+        <div class="mb-2"><span class="badge bg-warning text-dark">⭐ Featured</span></div>
+        @endif
+        @if($latestNews->is_breaking)
+        <div class="mb-2"><span class="badge bg-danger">🔴 Breaking</span></div>
+        @endif
+        @if($latestNews->category)
+        <div class="mb-2">
+            <div class="text-muted small">Category</div>
+            <div>{{ $latestNews->category->name }}</div>
         </div>
-        <div class="form-check mb-2">
-            <input type="checkbox" name="is_featured" value="1" class="form-check-input" id="is_featured" {{ old('is_featured', $latestNews?->is_featured) ? 'checked' : '' }} />
-            <label class="form-check-label" for="is_featured">Featured</label>
+        @endif
+        @if($latestNews->author)
+        <div class="mb-2">
+            <div class="text-muted small">Author</div>
+            <div>{{ $latestNews->author->name }}</div>
         </div>
-        <div class="form-check">
-            <input type="checkbox" name="is_breaking" value="1" class="form-check-input" id="is_breaking" {{ old('is_breaking', $latestNews?->is_breaking) ? 'checked' : '' }} />
-            <label class="form-check-label" for="is_breaking">Breaking News</label>
+        @endif
+        <div class="mb-2">
+            <div class="text-muted small">Created</div>
+            <div>{{ $latestNews->created_at->format('d M Y, H:i') }}</div>
+        </div>
+        <div>
+            <div class="text-muted small">Updated</div>
+            <div>{{ $latestNews->updated_at->format('d M Y, H:i') }}</div>
         </div>
     </div>
 </div>
-@if($latestNews)
-<div class="card"><div class="card-body">
-    <form method="POST" action="{{ route('admin.latest-news.destroy', $latestNews) }}" onsubmit="return confirm('Delete?')">
-        @csrf @method('DELETE')
-        <button class="btn btn-outline-danger btn-sm w-100"><i class="bi bi-trash"></i> Delete</button>
-    </form>
-</div></div>
+@else
+<div class="card mb-3">
+    <div class="card-body text-muted small">
+        <i class="bi bi-info-circle"></i> News info will appear here after saving.
+    </div>
+</div>
 @endif

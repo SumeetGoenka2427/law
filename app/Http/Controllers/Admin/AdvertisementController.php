@@ -47,7 +47,10 @@ class AdvertisementController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($advertisement->image) Storage::disk('public')->delete($advertisement->image);
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($advertisement->image) Storage::disk('public')->delete($advertisement->image);
             $data['image'] = $request->file('image')->store('ads', 'public');
         }

@@ -15,10 +15,9 @@
             </ol>
         </nav>
 
-        <div class="main-content">
-            <div class="content-col">
-                {{-- Author Bio Card --}}
-                <div class="d-flex align-items-start gap-4 mb-5 mt-2 p-4" style="background:#f8f9fa;border-radius:12px">
+        <div class="page-layout">
+            {{-- Author Bio Card --}}
+            <div class="author-bio-card d-flex align-items-start gap-4 mb-5 mt-2 p-4" style="background:#f8f9fa;border-radius:12px">
                     @if($author->image)
                         <img src="{{ asset('storage/'.$author->image) }}" alt="{{ $author->name }}"
                              style="width:90px;height:90px;border-radius:50%;object-fit:cover;flex-shrink:0" />
@@ -114,10 +113,9 @@
                 </div>
                 @endif
 
-                @if($articles->isEmpty() && $interviews->isEmpty() && $opinions->isEmpty())
-                <div class="text-center py-5 text-muted">No published content by this author yet.</div>
-                @endif
-            </div>
+            @if($articles->isEmpty() && $interviews->isEmpty() && $opinions->isEmpty())
+            <div class="text-center py-5 text-muted">No published content by this author yet.</div>
+            @endif
         </div>
     </div>
 </main>

@@ -45,16 +45,35 @@
             .main-wrap { margin-left: 0; }
             .content-area { padding: 1rem; }
             .stat-number { font-size: 1.4rem; }
+            .topbar-hamburger { display: flex; }
         }
         @media (max-width: 576px) {
             .content-area { padding: .75rem; }
             .topbar { padding: .6rem 1rem; }
             .topbar .page-title { font-size: .9rem; }
         }
+        .topbar-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+            margin-right: 8px;
+        }
+        .topbar-hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #495057;
+            border-radius: 2px;
+        }
     </style>
     @stack('styles')
 </head>
 <body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 <div class="sidebar">
     <div class="brand">
         <a href="{{ route('admin.dashboard') }}">Test<span>Law</span> Admin</a>
@@ -108,7 +127,12 @@
 
 <div class="main-wrap">
     <div class="topbar">
-        <h1 class="page-title">@yield('page-title', 'Dashboard')</h1>
+        <div class="d-flex align-items-center">
+            <button class="topbar-hamburger" id="sidebarToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <h1 class="page-title">@yield('page-title', 'Dashboard')</h1>
+        </div>
         <div class="d-flex align-items-center gap-2">
             <span class="text-muted small">{{ auth()->user()->name }}</span>
             <a href="{{ url('/') }}" target="_blank" class="btn btn-sm btn-outline-secondary">
@@ -138,5 +162,22 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 @stack('scripts')
+<script>
+(function () {
+    var toggle = document.getElementById('sidebarToggle');
+    var sidebar = document.querySelector('.sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    if (toggle && sidebar && overlay) {
+        toggle.addEventListener('click', function () {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        });
+        overlay.addEventListener('click', function () {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+        });
+    }
+})();
+</script>
 </body>
 </html>

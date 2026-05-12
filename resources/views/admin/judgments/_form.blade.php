@@ -66,3 +66,29 @@
     <label class="form-label">Meta Description</label>
     <textarea name="meta_description" rows="2" class="form-control">{{ old('meta_description', $judgment?->meta_description) }}</textarea>
 </div>
+
+<hr />
+<h6 class="fw-semibold">Publish Settings</h6>
+<div class="row mb-3">
+    <div class="col-md-4">
+        <label class="form-label fw-semibold">Status</label>
+        <select name="status" class="form-select @error('status') is-invalid @enderror">
+            @foreach(['draft','published','archived'] as $s)
+            <option value="{{ $s }}" {{ old('status', $judgment?->status ?? 'draft') == $s ? 'selected' : '' }}>{{ ucfirst($s) }}</option>
+            @endforeach
+        </select>
+        @error('status')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Publish Date</label>
+        <input type="datetime-local" name="published_at" class="form-control"
+            value="{{ old('published_at', $judgment?->published_at?->format('Y-m-d\TH:i')) }}" />
+    </div>
+    <div class="col-md-4 d-flex align-items-end pb-1">
+        <div class="form-check">
+            <input type="checkbox" name="is_featured" value="1" class="form-check-input" id="is_featured"
+                {{ old('is_featured', $judgment?->is_featured) ? 'checked' : '' }} />
+            <label class="form-check-label" for="is_featured">Featured</label>
+        </div>
+    </div>
+</div>

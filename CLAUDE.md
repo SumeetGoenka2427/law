@@ -14,9 +14,9 @@ Check entire project UI and CSS for:
 * tables/cards/forms
 * sidebar behavior
 * grid alignment
-
+only for user pages not admin pages
 Review ALL:
-
+only for user pages not admin pages
 * Blade pages
 * partials
 * components
@@ -28,14 +28,14 @@ Review ALL:
 # Responsive Requirements
 
 Support:
-
+only for user pages not admin pages
 * mobile
 * tablet
 * laptop
 * large desktop
 
 Primary focus:
-
+only for user pages not admin pages
 * mobile first
 * clean tablet layout
 * stable desktop layout
@@ -68,7 +68,7 @@ Use:
 # Mobile Navigation Rules
 
 Navbar must:
-
+only for user pages not admin pages
 * collapse properly
 * have working toggle
 * avoid overflow
@@ -92,7 +92,7 @@ Ensure:
 * proper heading scaling
 
 Avoid:
-
+only for user pages not admin pages
 * giant mobile headings
 * tiny text
 * horizontal scrolling
@@ -102,7 +102,7 @@ Avoid:
 # Image Rules
 
 All images must:
-
+only for user pages not admin pages
 * scale correctly
 * use responsive classes
 * avoid stretching
@@ -135,7 +135,7 @@ Avoid:
 # Sidebar Rules
 
 On mobile:
-
+only for user pages not admin pages
 * move sidebar below content
   OR
 * collapse appropriately
@@ -241,7 +241,7 @@ When fixing responsiveness:
 # Final Goal
 
 Ensure entire Laravel project is:
-
+only for user pages not admin pages
 * fully responsive
 * mobile friendly
 * Bootstrap optimized

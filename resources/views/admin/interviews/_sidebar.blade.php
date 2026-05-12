@@ -1,29 +1,49 @@
+@if($interview?->image)
 <div class="card mb-3">
-    <div class="card-header fw-semibold">Publish Settings</div>
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label fw-semibold">Status</label>
-            <select name="status" class="form-select">
-                @foreach(['draft','published','archived'] as $s)
-                <option value="{{ $s }}" {{ old('status', $interview?->status ?? 'draft') == $s ? 'selected' : '' }}>{{ ucfirst($s) }}</option>
-                @endforeach
-            </select>
+    <div class="card-header fw-semibold small">Featured Image</div>
+    <div class="card-body text-center p-2">
+        <img src="{{ asset('storage/'.$interview->image) }}" class="img-fluid rounded" alt="" />
+    </div>
+</div>
+@endif
+
+@if($interview)
+<div class="card mb-3">
+    <div class="card-header fw-semibold small">Interview Info</div>
+    <div class="card-body" style="font-size:.85rem">
+        <div class="mb-2">
+            <div class="text-muted small">Status</div>
+            @include('admin.partials.status-badge', ['status' => $interview->status])
         </div>
-        <div class="mb-3">
-            <label class="form-label">Publish Date</label>
-            <input type="datetime-local" name="published_at" class="form-control" value="{{ old('published_at', $interview?->published_at?->format('Y-m-d\TH:i')) }}" />
+        @if($interview->is_featured)
+        <div class="mb-2"><span class="badge bg-warning text-dark">⭐ Featured</span></div>
+        @endif
+        @if($interview->interviewee_name)
+        <div class="mb-2">
+            <div class="text-muted small">Interviewee</div>
+            <div>{{ $interview->interviewee_name }}</div>
         </div>
-        <div class="form-check">
-            <input type="checkbox" name="is_featured" value="1" class="form-check-input" id="is_featured" {{ old('is_featured', $interview?->is_featured) ? 'checked' : '' }} />
-            <label class="form-check-label" for="is_featured">Featured</label>
+        @endif
+        @if($interview->author)
+        <div class="mb-2">
+            <div class="text-muted small">Conducted By</div>
+            <div>{{ $interview->author->name }}</div>
+        </div>
+        @endif
+        <div class="mb-2">
+            <div class="text-muted small">Created</div>
+            <div>{{ $interview->created_at->format('d M Y, H:i') }}</div>
+        </div>
+        <div>
+            <div class="text-muted small">Updated</div>
+            <div>{{ $interview->updated_at->format('d M Y, H:i') }}</div>
         </div>
     </div>
 </div>
-@if($interview)
-<div class="card"><div class="card-body">
-    <form method="POST" action="{{ route('admin.interviews.destroy', $interview) }}" onsubmit="return confirm('Delete?')">
-        @csrf @method('DELETE')
-        <button class="btn btn-outline-danger btn-sm w-100"><i class="bi bi-trash"></i> Delete Interview</button>
-    </form>
-</div></div>
+@else
+<div class="card mb-3">
+    <div class="card-body text-muted small">
+        <i class="bi bi-info-circle"></i> Interview info will appear here after saving.
+    </div>
+</div>
 @endif

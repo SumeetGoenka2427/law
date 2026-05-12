@@ -24,7 +24,10 @@
                 <div class="col-md-6"><label class="form-label fw-semibold">Size (e.g. 728×90)</label><input type="text" name="size" value="{{ old('size') }}" class="form-control" /></div>
                 <div class="col-md-6"><label class="form-label fw-semibold">Click URL</label><input type="url" name="url" value="{{ old('url') }}" class="form-control" /></div>
             </div>
-            <div class="mb-3"><label class="form-label fw-semibold">Image</label><input type="file" name="image" class="form-control" accept="image/*" /></div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Image</label>
+                <x-admin.drag-upload name="image" :existing="null" />
+            </div>
             <div class="mb-3"><label class="form-label fw-semibold">Embed Code (optional)</label><textarea name="code" rows="3" class="form-control" placeholder="<script>...">{{ old('code') }}</textarea></div>
             <div class="row mb-3">
                 <div class="col-md-6"><label class="form-label">Start Date</label><input type="datetime-local" name="starts_at" value="{{ old('starts_at') }}" class="form-control" /></div>

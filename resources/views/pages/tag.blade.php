@@ -15,8 +15,7 @@
             </ol>
         </nav>
 
-        <div class="main-content">
-            <div class="content-col">
+        <div class="page-layout">
                 <h1 class="section-title mt-2">
                     <span class="accent">#{{ $tag->name }}</span>
                 </h1>
@@ -49,7 +48,6 @@
                     @endforelse
                 </div>
                 <div class="mt-4">{{ $articles->links() }}</div>
-            </div>
         </div>
     </div>
 </main>

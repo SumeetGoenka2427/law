@@ -15,7 +15,10 @@
             <div class="mb-3"><label class="form-label fw-semibold">Bio</label><textarea name="bio" rows="3" class="form-control">{{ old('bio') }}</textarea></div>
             <div class="row mb-3">
                 <div class="col-md-6"><label class="form-label fw-semibold">Email</label><input type="email" name="email" value="{{ old('email') }}" class="form-control" /></div>
-                <div class="col-md-6"><label class="form-label fw-semibold">Photo</label><input type="file" name="image" class="form-control" accept="image/*" /></div>
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Photo</label>
+                    <x-admin.drag-upload name="image" :existing="null" />
+                </div>
             </div>
             <div class="row mb-3">
                 <div class="col-md-6"><label class="form-label">Twitter Handle</label><input type="text" name="twitter" value="{{ old('twitter') }}" class="form-control" placeholder="@username" /></div>

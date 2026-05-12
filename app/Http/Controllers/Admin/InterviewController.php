@@ -54,7 +54,10 @@ class InterviewController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($interview->image) Storage::disk('public')->delete($interview->image);
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($interview->image) Storage::disk('public')->delete($interview->image);
             $data['image'] = $request->file('image')->store('interviews', 'public');
         }

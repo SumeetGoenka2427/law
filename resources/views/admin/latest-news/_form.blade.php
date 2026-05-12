@@ -43,11 +43,7 @@
 </div>
 <div class="mb-3">
     <label class="form-label fw-semibold">Featured Image</label>
-    @if ($latestNews?->image)
-        <div class="mb-2"><img src="{{ asset('storage/' . $latestNews->image) }}" height="80" class="rounded" />
-        </div>
-    @endif
-    <input type="file" name="image" class="form-control" accept="image/*" />
+    <x-admin.drag-upload name="image" :existing="$latestNews?->image" />
 </div>
 <div class="card-body">
     <div class="mb-3">

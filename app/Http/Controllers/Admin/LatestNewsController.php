@@ -57,7 +57,10 @@ class LatestNewsController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($latestNews->image) Storage::disk('public')->delete($latestNews->image);
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($latestNews->image) Storage::disk('public')->delete($latestNews->image);
             $data['image'] = $request->file('image')->store('news', 'public');
         }

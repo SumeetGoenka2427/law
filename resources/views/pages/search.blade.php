@@ -5,8 +5,7 @@
 @section('content')
 <main>
     <div class="container">
-        <div class="main-content">
-            <div class="content-col">
+        <div class="page-layout">
                 <div class="mt-4 mb-4">
                     <form method="GET" action="{{ route('search') }}" class="d-flex gap-2">
                         <input type="text" name="q" value="{{ e($q) }}"
@@ -64,7 +63,6 @@
                         <p class="small">Popular: POCSO, IBC, Electoral Bond, Article 370, NDPS Act, BNS, DPDP Act</p>
                     </div>
                 @endif
-            </div>
         </div>
     </div>
 </main>

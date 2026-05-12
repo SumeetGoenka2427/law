@@ -1,33 +1,54 @@
+@if($judgment)
 <div class="card mb-3">
-    <div class="card-header fw-semibold">Publish Settings</div>
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label fw-semibold">Status</label>
-            <select name="status" class="form-select">
-                @foreach(['draft','published','archived'] as $s)
-                <option value="{{ $s }}" {{ old('status', $judgment?->status ?? 'draft') == $s ? 'selected' : '' }}>{{ ucfirst($s) }}</option>
-                @endforeach
-            </select>
+    <div class="card-header fw-semibold small">Judgment Info</div>
+    <div class="card-body" style="font-size:.85rem">
+        <div class="mb-2">
+            <div class="text-muted small">Status</div>
+            @include('admin.partials.status-badge', ['status' => $judgment->status])
         </div>
-        <div class="mb-3">
-            <label class="form-label fw-semibold">Publish Date</label>
-            <input type="datetime-local" name="published_at" class="form-control"
-                value="{{ old('published_at', $judgment?->published_at?->format('Y-m-d\TH:i')) }}" />
+        @if($judgment->is_featured)
+        <div class="mb-2"><span class="badge bg-warning text-dark">⭐ Featured</span></div>
+        @endif
+        @if($judgment->court)
+        <div class="mb-2">
+            <div class="text-muted small">Court</div>
+            <div>{{ $judgment->court }}</div>
         </div>
-        <div class="form-check">
-            <input type="checkbox" name="is_featured" value="1" class="form-check-input" id="is_featured"
-                {{ old('is_featured', $judgment?->is_featured) ? 'checked' : '' }} />
-            <label class="form-check-label" for="is_featured">Featured</label>
+        @endif
+        @if($judgment->case_number)
+        <div class="mb-2">
+            <div class="text-muted small">Case Number</div>
+            <div>{{ $judgment->case_number }}</div>
+        </div>
+        @endif
+        @if($judgment->decided_at)
+        <div class="mb-2">
+            <div class="text-muted small">Date Decided</div>
+            <div>{{ $judgment->decided_at->format('d M Y') }}</div>
+        </div>
+        @endif
+        @if($judgment->pdf_file)
+        <div class="mb-2">
+            <div class="text-muted small">PDF</div>
+            <a href="{{ asset('storage/'.$judgment->pdf_file) }}" target="_blank" class="btn btn-sm btn-outline-secondary w-100">
+                <i class="bi bi-file-pdf"></i> View PDF
+            </a>
+        </div>
+        @endif
+        <div class="mb-2">
+            <div class="text-muted small">Created</div>
+            <div>{{ $judgment->created_at->format('d M Y, H:i') }}</div>
+        </div>
+        <div>
+            <div class="text-muted small">Updated</div>
+            <div>{{ $judgment->updated_at->format('d M Y, H:i') }}</div>
         </div>
     </div>
 </div>
-@if($judgment)
-<div class="card">
-    <div class="card-body">
-        <form method="POST" action="{{ route('admin.judgments.destroy', $judgment) }}" onsubmit="return confirm('Delete?')">
-            @csrf @method('DELETE')
-            <button class="btn btn-outline-danger btn-sm w-100"><i class="bi bi-trash"></i> Delete Judgment</button>
-        </form>
+@else
+<div class="card mb-3">
+    <div class="card-body text-muted small">
+        <i class="bi bi-info-circle"></i> Judgment info will appear here after saving.
     </div>
 </div>
 @endif

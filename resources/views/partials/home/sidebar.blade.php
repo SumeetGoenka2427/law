@@ -29,12 +29,26 @@
         </div>
     </div>
 
-    <!-- Ad Placeholder -->
+    <!-- Sidebar Top Ad -->
+    @if(!empty($sidebarTopAd) && $sidebarTopAd->image)
+    <div class="ad-box p-0 overflow-hidden">
+        @if($sidebarTopAd->url)
+        <a href="{{ $sidebarTopAd->url }}" target="_blank" rel="noopener nofollow">
+            <img src="{{ asset('storage/'.$sidebarTopAd->image) }}" alt="{{ $sidebarTopAd->title }}" class="img-fluid w-100" />
+        </a>
+        @else
+        <img src="{{ asset('storage/'.$sidebarTopAd->image) }}" alt="{{ $sidebarTopAd->title }}" class="img-fluid w-100" />
+        @endif
+    </div>
+    @elseif(!empty($sidebarTopAd) && $sidebarTopAd->code)
+    <div class="ad-box p-2">{!! $sidebarTopAd->code !!}</div>
+    @else
     <div class="ad-box">
         <div class="ad-box-icon">📢</div>
         <div class="ad-box-label">Advertisement</div>
         <div class="ad-box-size">300 × 250 — Medium Rectangle</div>
     </div>
+    @endif
 
     <!-- Most Read -->
     <div class="sidebar-widget">
@@ -74,10 +88,24 @@
         <livewire:forms.newsletter-form />
     </div>
 
-    <!-- Second Ad -->
+    <!-- Sidebar Mid Ad -->
+    @if(!empty($sidebarMidAd) && $sidebarMidAd->image)
+    <div class="ad-box p-0 overflow-hidden">
+        @if($sidebarMidAd->url)
+        <a href="{{ $sidebarMidAd->url }}" target="_blank" rel="noopener nofollow">
+            <img src="{{ asset('storage/'.$sidebarMidAd->image) }}" alt="{{ $sidebarMidAd->title }}" class="img-fluid w-100" />
+        </a>
+        @else
+        <img src="{{ asset('storage/'.$sidebarMidAd->image) }}" alt="{{ $sidebarMidAd->title }}" class="img-fluid w-100" />
+        @endif
+    </div>
+    @elseif(!empty($sidebarMidAd) && $sidebarMidAd->code)
+    <div class="ad-box p-2">{!! $sidebarMidAd->code !!}</div>
+    @else
     <div class="ad-box" style="height: 180px">
         <div class="ad-box-icon">🏛️</div>
         <div class="ad-box-label">Law Firm Advertisement</div>
         <div class="ad-box-size">300 × 150</div>
     </div>
+    @endif
 </aside>

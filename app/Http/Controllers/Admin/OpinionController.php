@@ -54,7 +54,10 @@ class OpinionController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($opinion->image) Storage::disk('public')->delete($opinion->image);
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($opinion->image) Storage::disk('public')->delete($opinion->image);
             $data['image'] = $request->file('image')->store('opinions', 'public');
         }

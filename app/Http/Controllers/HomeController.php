@@ -18,9 +18,12 @@ class HomeController extends Controller
         $judgments      = Judgment::with('category')->published()->latest('published_at')->limit(4)->get();
         $opinions       = Opinion::with('author')->published()->latest('published_at')->limit(3)->get();
         $leaderboardAd  = Advertisement::active()->where('position', 'leaderboard')->first();
+        $sidebarTopAd   = Advertisement::active()->where('position', 'sidebar-top')->first();
+        $sidebarMidAd   = Advertisement::active()->where('position', 'sidebar-mid')->first();
 
         return view('pages.home', compact(
-            'heroArticles', 'latestNews', 'breakingNews', 'judgments', 'opinions', 'leaderboardAd'
+            'heroArticles', 'latestNews', 'breakingNews', 'judgments', 'opinions',
+            'leaderboardAd', 'sidebarTopAd', 'sidebarMidAd'
         ));
     }
 }

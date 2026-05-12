@@ -15,8 +15,7 @@
             </ol>
         </nav>
 
-        <div class="main-content">
-            <div class="content-col">
+        <div class="page-layout">
                 <div class="d-flex align-items-center gap-2 mb-4">
                     @if($category->color)
                         <span style="width:6px;height:36px;border-radius:3px;background:{{ $category->color }};display:inline-block;flex-shrink:0"></span>
@@ -97,7 +96,6 @@
                 @if($articles->isEmpty() && $judgments->isEmpty() && $news->isEmpty())
                 <div class="text-center py-5 text-muted">No published content in this category yet.</div>
                 @endif
-            </div>
         </div>
     </div>
 </main>

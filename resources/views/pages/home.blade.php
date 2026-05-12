@@ -6,9 +6,23 @@
 @section('content')
 <main>
     <div class="container">
+        @if(!empty($leaderboardAd) && $leaderboardAd->image)
+        <div class="leaderboard-ad">
+            @if($leaderboardAd->url)
+            <a href="{{ $leaderboardAd->url }}" target="_blank" rel="noopener nofollow">
+                <img src="{{ asset('storage/'.$leaderboardAd->image) }}" alt="{{ $leaderboardAd->title }}" class="img-fluid" />
+            </a>
+            @else
+            <img src="{{ asset('storage/'.$leaderboardAd->image) }}" alt="{{ $leaderboardAd->title }}" class="img-fluid" />
+            @endif
+        </div>
+        @elseif(!empty($leaderboardAd) && $leaderboardAd->code)
+        <div class="leaderboard-ad">{!! $leaderboardAd->code !!}</div>
+        @else
         <div class="leaderboard-ad">
             <span>Advertisement — 728 × 90</span>
         </div>
+        @endif
 
         <div class="main-content">
             <div class="content-col">

@@ -236,7 +236,8 @@
 @media (max-width: 640px) {
     .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     .pre-footer .container { flex-direction: column; align-items: flex-start; }
-    .pf-email-input { width: 200px; }
+    .pf-newsletter { width: 100%; }
+    .pf-email-input { flex: 1; min-width: 0; width: auto; }
 }
 
 /* Brand */

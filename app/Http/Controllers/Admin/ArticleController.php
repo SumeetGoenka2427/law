@@ -64,7 +64,10 @@ class ArticleController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($article->image) Storage::disk('public')->delete($article->image);
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($article->image) Storage::disk('public')->delete($article->image);
             $data['image'] = $request->file('image')->store('articles', 'public');
         }

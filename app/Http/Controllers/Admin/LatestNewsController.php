@@ -8,6 +8,7 @@ use App\Models\LatestNews;
 use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class LatestNewsController extends Controller
 {
@@ -58,11 +59,33 @@ class LatestNewsController extends Controller
         $data = $request->validated();
 
         if ($request->boolean('remove_image')) {
-            if ($latestNews->image) Storage::disk('public')->delete($latestNews->image);
+            if ($latestNews->image) {
+                Storage::disk('public')->delete($latestNews->image);
+            }
+
             $data['image'] = null;
         } elseif ($request->hasFile('image')) {
-            if ($latestNews->image) Storage::disk('public')->delete($latestNews->image);
+
+            if ($latestNews->image) {
+                Storage::disk('public')->delete($latestNews->image);
+            }
+
             $data['image'] = $request->file('image')->store('news', 'public');
+        }
+
+        // Update slug when title changes
+        if (
+            isset($data['title']) &&
+            $data['title'] !== $latestNews->title
+        ) {
+
+            $slug = Str::slug($data['title']);
+
+            $count = LatestNews::where('slug', 'LIKE', "{$slug}%")
+                ->where('id', '!=', $latestNews->id)
+                ->count();
+
+            $data['slug'] = $count ? "{$slug}-{$count}" : $slug;
         }
 
         if ($data['status'] === 'published' && empty($latestNews->published_at)) {
@@ -71,7 +94,9 @@ class LatestNewsController extends Controller
 
         $latestNews->update($data);
 
-        return redirect()->route('admin.latest-news.index')->with('success', 'News item updated successfully.');
+        return redirect()
+            ->route('admin.latest-news.index')
+            ->with('success', 'News item updated successfully.');
     }
 
     public function destroy(LatestNews $latestNews)

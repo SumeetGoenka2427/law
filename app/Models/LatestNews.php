@@ -13,9 +13,21 @@ class LatestNews extends Model
     protected $table = 'latest_news';
 
     protected $fillable = [
-        'category_id', 'author_id', 'title', 'slug', 'excerpt', 'content',
-        'image', 'status', 'is_featured', 'is_breaking',
-        'published_at', 'meta_title', 'meta_description', 'og_image', 'views',
+        'category_id',
+        'author_id',
+        'title',
+        'slug',
+        'excerpt',
+        'content',
+        'image',
+        'status',
+        'is_featured',
+        'is_breaking',
+        'published_at',
+        'meta_title',
+        'meta_description',
+        'og_image',
+        'views',
     ];
 
     protected $casts = [
@@ -27,21 +39,48 @@ class LatestNews extends Model
     protected static function boot()
     {
         parent::boot();
+
         static::creating(function ($m) {
             $m->slug = $m->slug ?: static::uniqueSlug($m->title);
         });
+
+        static::updating(function ($m) {
+            if ($m->isDirty('title')) {
+                $m->slug = static::uniqueSlug($m->title, $m->id);
+            }
+        });
     }
 
-    public static function uniqueSlug(string $title): string
+    public static function uniqueSlug(string $title, $ignoreId = null): string
     {
         $slug = Str::slug($title);
-        $count = static::where('slug', 'LIKE', "{$slug}%")->count();
+
+        $query = static::where('slug', 'LIKE', "{$slug}%");
+
+        if ($ignoreId) {
+            $query->where('id', '!=', $ignoreId);
+        }
+
+        $count = $query->count();
+
         return $count ? "{$slug}-{$count}" : $slug;
     }
 
-    public function category() { return $this->belongsTo(Category::class); }
-    public function author() { return $this->belongsTo(Author::class); }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
 
-    public function scopePublished($q) { return $q->where('status', 'published'); }
-    public function scopeBreaking($q) { return $q->where('is_breaking', true); }
+    public function scopePublished($q)
+    {
+        return $q->where('status', 'published');
+    }
+    public function scopeBreaking($q)
+    {
+        return $q->where('is_breaking', true);
+    }
 }

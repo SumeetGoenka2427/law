@@ -61,3 +61,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('tags',          AdminTagController::class);
     Route::resource('advertisements', AdminAdvertisementController::class);
 });
+
+Route::fallback(function () {
+    return redirect()->route('home');
+});
